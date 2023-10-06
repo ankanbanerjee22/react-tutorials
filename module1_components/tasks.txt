@@ -1,4 +1,4 @@
 Create first react app
 make 3 components
     1. counter
-    2.
+    2. create component 2
