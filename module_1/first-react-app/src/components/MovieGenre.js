@@ -27,15 +27,15 @@ const MovieGenre = ({ genres, selectedGenre, onSelect }) => {
     return () => {
       instance.destroy();
     };
-  }, []); // Empty dependency array ensures that this effect runs once after the initial render
+  }, []);
 
 
   const customTabsStyle = {
-    height: '50px', // Set the desired height for the tab bar
-    lineHeight: '20px', // Center the text vertically within the tab bar
-    width: '40%', // Set the desired width for the tab bar
-    backgroundColor: '#3e2723', // Set the background color of the tab bar
-    color: '#18ffff', // Set the font color of the tab text
+    height: '50px',
+    lineHeight: '20px',
+    width: '40%', 
+    backgroundColor: '#3e2723',
+    color: '#18ffff', 
   };
 
 
