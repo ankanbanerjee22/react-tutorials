@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import '../css/MovieGenre.css';
 
-
 /**
  * 
  * Requirements
@@ -18,27 +17,23 @@ import '../css/MovieGenre.css';
  */
 
 const MovieGenre = ({ genres, selectedGenre, onSelect }) => {
-  // Initialize tabs when the component mounts
+  // Initialize tabs 
   const tabsRef = useRef(null);
 
   useEffect(() => {
-    // Initialize Materialize tabs component using the ref
     const instance = window.M.Tabs.init(tabsRef.current);
-    // Cleanup on component unmount
     return () => {
       instance.destroy();
     };
   }, []);
 
-
-
-
   return (
-    <div className="genre-list">
-      <div className="row">
-        <div className="col s12">
-          <ul className="tabs movie-genre-tabs" ref={tabsRef}>
-            {genres.map((genre) => {
+    <>
+      <div className="genre-list">
+        <div className="row">
+          <div className="col s12">
+            <ul className="tabs movie-genre-tabs" ref={tabsRef}>
+              {genres.map((genre) => {
                 const genreLink = `#${genre}`;
                 const isActive = genre === selectedGenre;
                 const activeClass = isActive ? 'active' : '';
@@ -50,11 +45,12 @@ const MovieGenre = ({ genres, selectedGenre, onSelect }) => {
                     </a>
                   </li>
                 )
-            })}
-          </ul>
+              })}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 
 };

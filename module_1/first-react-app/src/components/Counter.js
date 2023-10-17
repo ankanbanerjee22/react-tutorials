@@ -18,7 +18,6 @@ const Counter = () => {
         setCount(count - 1);
     };
 
-
     return (
         <div className="container"> 
             <div className="row">

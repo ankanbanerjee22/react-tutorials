@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../css/SearchBox.css'
 import {FIND_YOUR_MOVIE} from '../literals';
 
-
 /**
  * Requirements
  * --------------
@@ -36,7 +35,6 @@ const SearchBox = ({ initialQuery, onSearch }) => {
             onSearch(query);
         }
     };
-
 
     return (
         <>
@@ -77,6 +75,7 @@ const SearchBox = ({ initialQuery, onSearch }) => {
             </div>
         </>
     );
+
 };
 
 
