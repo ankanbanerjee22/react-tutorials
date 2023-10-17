@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import '../css/MovieGenre.css';
 
 
 /**
@@ -30,27 +31,26 @@ const MovieGenre = ({ genres, selectedGenre, onSelect }) => {
   }, []);
 
 
-  const customTabsStyle = {
-    height: '50px',
-    lineHeight: '20px',
-    width: '40%', 
-    backgroundColor: '#3e2723',
-    color: '#18ffff', 
-  };
 
 
   return (
     <div className="genre-list">
       <div className="row">
         <div className="col s12">
-          <ul className="tabs  z-depth-5" style={customTabsStyle} ref={tabsRef}>
-            {genres.map((genre) => (
-              <li key={genre} className="tab">
-                <a href={`#${genre}`} className={genre === selectedGenre ? 'active' : ''} onClick={() => onSelect(genre)}>
-                  {genre}
-                </a>
-              </li>
-            ))}
+          <ul className="tabs movie-genre-tabs" ref={tabsRef}>
+            {genres.map((genre) => {
+                const genreLink = `#${genre}`;
+                const isActive = genre === selectedGenre;
+                const activeClass = isActive ? 'active' : '';
+
+                return (
+                  <li key={genre} className="tab">
+                    <a key={genre} href={genreLink} className={activeClass} onClick={() => onSelect(genre)}>
+                      {genre}
+                    </a>
+                  </li>
+                )
+            })}
           </ul>
         </div>
       </div>
@@ -58,5 +58,6 @@ const MovieGenre = ({ genres, selectedGenre, onSelect }) => {
   );
 
 };
+
 
 export default MovieGenre;

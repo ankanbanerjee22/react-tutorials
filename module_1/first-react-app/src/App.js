@@ -3,39 +3,28 @@ import SearchBox from './components/SearchBox.js';
 import MovieGenre from './components/MovieGenre.js';
 import CounterLegacy from './components/CounterLegacy.js';
 
-
-
-
-
 function App() {
 
   useEffect(() => {
-    // Initialize Materialize collapsible when the component mounts
     const collapsibleElems = document.querySelectorAll('.collapsible');
+
     window.M.Collapsible.init(collapsibleElems, {
       accordion: false
     });
 
-  }, []); // Empty dependency array ensures that this effect runs once after the initial render
-
+  }, []);
 
   const genres = ['All', 'Action', 'Adventure', 'Comedy', 'Drama', 'Sci-Fi'];
   const [selectedGenre, setSelectedGenre] = useState('All');
 
-
   const handleGenreSelect = (genre) => {
     setSelectedGenre(genre);
-    // Perform any other actions when a genre is selected
     //alert('Genre is: ' + genre);
   };
 
   const handleSearch = (query) => {
     alert("Searching movies with name: " + query);
   }
-
-
-
-
 
   return (
     <>
@@ -57,6 +46,7 @@ function App() {
       </ul>
     </>
   );
+  
 }
 
 export default App;

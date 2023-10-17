@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../css/Counter.css';
 
 /**
  * This component is built as per ECMA script
@@ -33,42 +33,29 @@ class CounterLegacy extends React.Component {
         }));
 
     };
+    
     render() {
-
-        // not using global css, wanted to try this way using react
-        const buttonStyle = {
-            margin: '6px 20px'
-        };
-
-        const counterStyle = {
-            backgroundColor: '#fafafa', 
-            color: '#009688', // Text color
-            fontSize: '2.2rem',
-            fontWeight: 'bold',
-            borderColor: 'black',
-            border: '2px solid black',
-            borderRadius: '20px', //radius for a rounded shape
-        };
-
         return React.createElement('div', null, [
-            React.createElement('div', { className: 'row' }, [
-                React.createElement('div', { className: 'col s5 right-align', style: buttonStyle }, [
-                    React.createElement('button', { className: 'waves-effect red btn right-align', onClick: this.handleDecrement }, [
-                        React.createElement('i', { className: 'material-icons' }, 'remove')
+            React.createElement('div', { className: 'row', key: 'row' }, [
+                React.createElement('div', { className: 'col s5 right-align counter-button-style', key: 'decrementButton' }, [
+                    React.createElement('button', { className: 'waves-effect red btn right-align', onClick: this.handleDecrement, key: 'decrementButtonInner' }, [
+                        React.createElement('i', { className: 'material-icons', key: 'decrementIcon' }, 'remove')
                     ])
                 ]),
-                React.createElement('div', { className: 'col s1' }, [
-                    React.createElement('div', { className: 'text-input center-align', style: counterStyle }, [
+                React.createElement('div', { className: 'col s1', key: 'countDisplay' }, [
+                    React.createElement('div', { className: 'text-input center-align counter-style', key: 'countValue' }, [
                         this.state.count
                     ])
                 ]),
-                React.createElement('div', { className: 'col s1 left-align', style: buttonStyle }, [
-                    React.createElement('button', { className: 'waves-effect green btn', onClick: this.handleIncrement }, [
-                        React.createElement('i', { className: 'material-icons' }, 'add')
+                React.createElement('div', { className: 'col s1 counter-button-style', key: 'incrementButton' }, [
+                    React.createElement('button', { className: 'waves-effect green btn', onClick: this.handleIncrement, key: 'incrementButtonInner' }, [
+                        React.createElement('i', { className: 'material-icons', key: 'incrementIcon' }, 'add')
                     ])
                 ])
             ])
         ]);
     }
+
 }
+
 export default CounterLegacy;

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import '../css/SearchBox.css'
+import {FIND_YOUR_MOVIE} from '../literals';
 
 
 /**
@@ -35,48 +37,19 @@ const SearchBox = ({ initialQuery, onSearch }) => {
         }
     };
 
-    const cardStyle = {
-        backgroundImage: `url(${process.env.PUBLIC_URL}/images/movie-list.jpg)`,
-        backgroundSize: 'cover',
-        borderRadius: '15px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '20px'
-    };
-
-    const overlayStyle = {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.6)', // Semi-transparent black overlay
-        borderRadius: '15px'
-    };
-
-    const inputStyle = {
-        backgroundColor: '#263238',
-        borderRadius: '20px',
-        padding: '10px',
-        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)',
-        width: '100%'
-    };
-
 
     return (
         <>
             <div className="row center-align">
                 <div className="col s12 m8 offset-m2">
-                    <div className="card medium" style={cardStyle}>
-                        <div className="card-content" style={overlayStyle}>
+                    <div className="card medium card-style">
+                        <div className="card-content overlay-style">
                             <div className="row center-align">
                                 <div className="col s12 center-align">
-                                    <h3 style={{ color: '#eceff1' }}>Find Your Movie</h3>
+                                    <h3 className="fym-heading">{FIND_YOUR_MOVIE}</h3>
                                 </div>
                                 <div className="col s6 offset-s3 right-align">
-                                    <div className="input-field" style={inputStyle}>
+                                    <div className="input-field input-style">
                                         <input
                                             id="search-input"
                                             type="text"
@@ -89,7 +62,7 @@ const SearchBox = ({ initialQuery, onSearch }) => {
                                         <label htmlFor="search-input"></label>
                                     </div>
                                 </div>
-                                <div className="col s2 left-align" style={{ marginTop: '30px' }}>
+                                <div className="col s2 left-align search-movie-button">
                                     <button
                                         className="waves-effect waves-light red btn"
                                         onClick={handleSearch}
@@ -105,5 +78,6 @@ const SearchBox = ({ initialQuery, onSearch }) => {
         </>
     );
 };
+
 
 export default SearchBox;
