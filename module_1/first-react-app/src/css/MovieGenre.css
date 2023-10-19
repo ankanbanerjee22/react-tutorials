@@ -1,0 +1,9 @@
+/* css file for MovieGenre component*/
+
+.movie-genre-tabs {
+    height: 60px !important;
+    line-height: 40px !important;
+    width: 60% !important; 
+    background-color: #3e2723 !important;
+  }
+  
