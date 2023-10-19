@@ -31,7 +31,7 @@ function App() {
       <ul className="collapsible  popout">
         <li>
           <div className="collapsible-header"><i className="material-icons">star_half</i>Counter Legacy</div>
-          <div className="collapsible-body"><span><CounterLegacy />
+          <div className="collapsible-body"><span><CounterLegacy initialValue={0} />
           </span></div>
         </li>
         <li>
