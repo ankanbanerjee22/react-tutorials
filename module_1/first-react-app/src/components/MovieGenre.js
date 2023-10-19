@@ -22,9 +22,7 @@ const MovieGenre = ({ genres, selectedGenre, onSelect }) => {
 
   useEffect(() => {
     const instance = window.M.Tabs.init(tabsRef.current);
-    return () => {
-      instance.destroy();
-    };
+
   }, []);
 
   return (

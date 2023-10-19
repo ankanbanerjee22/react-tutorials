@@ -20,14 +20,15 @@ const Counter = () => {
 
     return (
         <div className="container"> 
+
             <div className="row">
                 <div className="col s5 right-align counter-button-style">
                     <button className="waves-effect red btn right-align" onClick={handleDecrement}>
-                        <i class="material-icons">remove</i>
+                        <i className="material-icons">remove</i>
                     </button>
                 </div>
                 <div className="col s1"> 
-                    <div className="text-input center-align counter-style"> 
+                    <div className="text-input center-align counter-style">
                         {count}
                     </div>
                 </div>

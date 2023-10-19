@@ -39,8 +39,8 @@ const SearchBox = ({ initialQuery, onSearch }) => {
     return (
         <>
             <div className="row center-align">
-                <div className="col s12 m8 offset-m2">
-                    <div className="card medium card-style">
+                <div className="col s12 m12">
+                    <div className="card small card-style">
                         <div className="card-content overlay-style">
                             <div className="row center-align">
                                 <div className="col s12 center-align">
@@ -52,7 +52,7 @@ const SearchBox = ({ initialQuery, onSearch }) => {
                                             id="search-input"
                                             type="text"
                                             className="white-text"
-                                            placeholder='What do you want to watch ?'
+                                            placeholder='  What do you want to watch ?'
                                             value={query}
                                             onChange={handleInputChange}
                                             onKeyPress={handleKeyPress}
