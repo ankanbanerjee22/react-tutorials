@@ -6,10 +6,9 @@ const genres = ['Action', 'Comedy', 'Drama', 'Horror'];
 const selectedGenre = 'Comedy';
 const onSelectMock = jest.fn();
 
-
 global.M = {
   Tabs: {
-    init: jest.fn(), // Mock the init method of Tabs
+    init: jest.fn(),
   },
 
 };
