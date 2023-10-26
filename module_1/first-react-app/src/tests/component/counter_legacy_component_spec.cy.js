@@ -1,7 +1,7 @@
 import React from 'react'
 import CounterLegacy from '../../components/CounterLegacy'
 
-describe('End-to-End testing for counter component', () => {
+describe('Component testing for counter component', () => {
   it('renders', () => {
 
     cy.viewport('macbook-16');
