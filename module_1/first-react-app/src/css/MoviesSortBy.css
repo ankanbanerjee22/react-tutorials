@@ -1,0 +1,15 @@
+.dropdown-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .label {
+    margin-right: 50px;
+    margin-top: 10px;
+    color: #bdbdbd;
+    font-size: 1.5em;
+  }
+  
+  .select {
+    color: red;
+  }

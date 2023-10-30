@@ -1,0 +1,808 @@
+[
+  {
+    "id": 337167,
+    "movieName": "Fifty Shades Freed",
+    "tagline": "Don't miss the climax",
+    "rating": 6.1,
+    "vote_count": 1195,
+    "releaseYear": "2018",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg",
+    "description": "Believing they have left behind shadowy figures from their past, newlyweds Christian and Ana fully embrace an inextricable connection and shared life of luxury. But just as she steps into her role as Mrs. Grey and he relaxes into an unfamiliar stability, new threats could jeopardize their happy ending before it even begins.",
+    "budget": 55000000,
+    "revenue": 136906000,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "duration": "1 hour 33 mins"
+  },
+
+  {
+    "id": 181808,
+    "movieName": "Star Wars: The Last Jedi",
+    "tagline": "The Saga Continues",
+    "rating": 7.1,
+    "vote_count": 4732,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
+    "description": "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares to do battle with the First Order.",
+    "budget": 200000000,
+    "revenue": 1325937250,
+    "genres": [
+      "Fantasy",
+      "Adventure",
+      "Science Fiction"
+    ],
+    "duration": "2 hour 21 mins"
+  },
+  {
+    "id": 284054,
+    "movieName": "Black Panther",
+    "tagline": "Long live the king",
+    "rating": 7.3,
+    "vote_count": 3788,
+    "releaseYear": "2018",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
+    "description": "King T'Challa returns home from America to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne by factions within his own country as well as without.  Using powers reserved to Wakandan kings, T'Challa assumes the Black Panther mantel to join with girlfriend Nakia, the queen-mother, his princess-kid sister,  members of the Dora Milaje (the Wakandan \"special forces\"), and an American secret agent, to prevent Wakanda from being dragged into a world war.",
+    "budget": 200000000,
+    "revenue": 1245257672,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Science Fiction"
+    ],
+    "duration": "2 hour 14 mins"
+  },
+  {
+    "id": 354912,
+    "movieName": "Coco",
+    "tagline": "The celebration of a lifetime",
+    "rating": 7.8,
+    "vote_count": 3619,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg",
+    "description": "Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history.",
+    "budget": 175000000,
+    "revenue": 700920729,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Family",
+      "Animation"
+    ],
+    "duration": "1 hour 45 mins"
+  },
+  {
+    "id": 333339,
+    "movieName": "Ready Player One",
+    "tagline": "A better reality awaits.",
+    "rating": 8.1,
+    "vote_count": 617,
+    "releaseYear": "2018",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/pU1ULUq8D3iRxl1fdX2lZIzdHuI.jpg",
+    "description": "When the creator of a popular video game system dies, a virtual contest is created to compete for his fortune.",
+    "budget": 175000000,
+    "revenue": 0,
+    "genres": [
+      "Adventure",
+      "Science Fiction",
+      "Action"
+    ],
+    "duration": 140
+  },
+  {
+    "id": 338970,
+    "movieName": "Tomb Raider",
+    "tagline": "Her legend begins",
+    "rating": 6.2,
+    "vote_count": 817,
+    "releaseYear": "2018",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg",
+    "description": "Lara Croft, the fiercely independent daughter of a missing adventurer, must push herself beyond her limits when she finds herself on the island where her father disappeared.",
+    "budget": 94000000,
+    "revenue": 126025000,
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
+    "duration": "1 hour 30 mins"
+  },
+  {
+    "id": 284053,
+    "movieName": "Thor: Ragnarok",
+    "tagline": "No Hammer. No Problem.",
+    "rating": 7.4,
+    "vote_count": 5349,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg",
+    "description": "Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the prophecy of destruction to his homeworld and the end of Asgardian civilization, at the hands of an all-powerful new threat, the ruthless Hela.",
+    "budget": 180000000,
+    "revenue": 854229371,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "duration": "2 hour 10 mins"
+  },
+  {
+    "id": 321612,
+    "movieName": "Beauty and the Beast",
+    "tagline": "Be our guest.",
+    "rating": 6.8,
+    "vote_count": 7861,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/tWqifoYuwLETmmasnGHO7xBjEtt.jpg",
+    "description": "A live-action adaptation of Disney's version of the classic tale of a cursed prince and a beautiful young woman who helps him break the spell.",
+    "budget": 160000000,
+    "revenue": 1263521126,
+    "genres": [
+      "Family",
+      "Fantasy",
+      "Romance"
+    ],
+    "duration": "2 hour 9 mins"
+  },
+  {
+    "id": 399055,
+    "movieName": "The Shape of Water",
+    "tagline": "A Fairy Tale for Troubled Times",
+    "rating": 7.3,
+    "vote_count": 3200,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/k4FwHlMhuRR5BISY2Gm2QZHlH5Q.jpg",
+    "description": "An other-worldly story, set against the backdrop of Cold War era America circa 1962, where a mute janitor working at a lab falls in love with an amphibious man being held captive there and devises a plan to help him escape.",
+    "budget": 19500000,
+    "revenue": 185545281,
+    "genres": [
+      "Drama",
+      "Fantasy",
+      "Romance"
+    ],
+    "duration": "2 hour 3 mins"
+  },
+  {
+    "id": 198663,
+    "movieName": "The Maze Runner",
+    "tagline": "Remember. Survive. Run.",
+    "rating": 7,
+    "vote_count": 7502,
+    "releaseYear": "2014",
+    "imageUrl": "https://ichef.bbci.co.uk/images/ic/976xn/p0287d23.jpg",
+    "description": "Set in a post-apocalyptic world, young Thomas is deposited in a community of boys after his memory is erased, soon learning they're all trapped in a maze that will require him to join forces with fellow “runners” for a shot at escape.",
+    "budget": 34000000,
+    "revenue": 348300000,
+    "genres": [
+      "Action",
+      "Mystery",
+      "Science Fiction",
+      "Thriller"
+    ],
+    "duration": "1 hour 53 mins"
+  },
+  {
+    "id": 141052,
+    "movieName": "Justice League",
+    "tagline": "",
+    "rating": 6.4,
+    "vote_count": 3960,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/eifGNCSDuxJeS1loAXil5bIGgvC.jpg",
+    "description": "Fuelled by his restored faith in humanity and inspired by Superman's selfless act, Bruce Wayne and Diana Prince assemble a team of metahumans consisting of Barry Allen, Arthur Curry and Victor Stone to face the catastrophic threat of Steppenwolf and the Parademons who are on the hunt for three Mother Boxes on Earth.",
+    "budget": 500000000,
+    "revenue": 655894816,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Science Fiction"
+    ],
+    "duration": "2 hour 2 mins"
+  },
+  {
+    "id": 268896,
+    "movieName": "Pacific Rim: Uprising",
+    "tagline": "Rise Up",
+    "rating": 6,
+    "vote_count": 318,
+    "releaseYear": "2018",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/v5HlmJK9bdeHxN2QhaFP1ivjX3U.jpg",
+    "description": "It has been ten years since The Battle of the Breach and the oceans are still, but restless. Vindicated by the victory at the Breach, the Jaeger program has evolved into the most powerful global defense force in human history. The PPDC now calls upon the best and brightest to rise up and become the next generation of heroes when the Kaiju threat returns.",
+    "budget": 150000000,
+    "revenue": 150613316,
+    "genres": [
+      "Action",
+      "Fantasy",
+      "Science Fiction",
+      "Adventure"
+    ],
+    "duration": "1 hour 58 mins"
+  },
+
+  {
+    "id": 335984,
+    "movieName": "Blade Runner 2049",
+    "tagline": "There's still a page left.",
+    "rating": 7.3,
+    "vote_count": 3955,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg",
+    "description": "Thirty years after the events of the first film, a new blade runner, LAPD Officer K, unearths a long-buried secret that has the potential to plunge what's left of society into chaos. K's discovery leads him on a quest to find Rick Deckard, a former LAPD blade runner who has been missing for 30 years.",
+    "budget": 150000000,
+    "revenue": 259239658,
+    "genres": [
+      "Mystery",
+      "Science Fiction",
+      "Thriller"
+    ],
+    "duration": "2 hour 41 mins"
+  },
+
+  {
+    "id": 300668,
+    "movieName": "Annihilation",
+    "tagline": "Fear What's Inside.",
+    "rating": 6.4,
+    "vote_count": 1291,
+    "releaseYear": "2018",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/d3qcpfNwbAMCNqWDHzPQsUYiUgS.jpg",
+    "description": "A biologist signs up for a dangerous, secret expedition into a mysterious zone where the laws of nature don't apply.",
+    "budget": 40000000,
+    "revenue": 13258603,
+    "genres": [
+      "Mystery",
+      "Science Fiction",
+      "Drama"
+    ],
+    "duration": "1 hour 45 mins"
+  },
+  {
+    "id": 353486,
+    "movieName": "Jumanji: Welcome to the Jungle",
+    "tagline": "The game has evolved.",
+    "rating": 6.5,
+    "vote_count": 3330,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/bXrZ5iHBEjH7WMidbUDQ0U2xbmr.jpg",
+    "description": "The tables are turned as four teenagers are sucked into Jumanji's world - pitted against rhinos, black mambas and an endless variety of jungle traps and puzzles. To survive, they'll play as characters from the game.",
+    "budget": 90000000,
+    "revenue": 928901353,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Family"
+    ],
+    "duration": "1 hour 58 mins"
+  },
+  {
+    "id": 245891,
+    "movieName": "John Wick",
+    "tagline": "Don't set him off.",
+    "rating": 7,
+    "vote_count": 7175,
+    "releaseYear": "2014",
+    "imageUrl": "https://rukminim2.flixcart.com/image/850/1000/k0lbdzk0/poster/4/w/g/medium-john-wick-poster-for-room-office-13-inch-x-19-inch-rolled-original-imafkc6fd8mc6jga.jpeg?q=90",
+    "description": "Ex-hitman John Wick comes out of retirement to track down the gangsters that took everything from him.",
+    "budget": 20000000,
+    "revenue": 88761661,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "duration": "1 hour 41 mins"
+  },
+
+  {
+    "id": 353616,
+    "movieName": "Pitch Perfect 3",
+    "tagline": "Last Call Pitches",
+    "rating": 6.4,
+    "vote_count": 727,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/fchHLsLjFvzAFSQykiMwdF1051.jpg",
+    "description": "After the highs of winning the world championships, the Bellas find themselves split apart and discovering there aren't job prospects for making music with your mouth. But when they get the chance to reunite for an overseas USO tour, this group of awesome nerds will come together to make some music, and some questionable decisions, one last time.",
+    "budget": 45000000,
+    "revenue": 183600000,
+    "genres": [
+      "Comedy",
+      "Music"
+    ],
+    "duration": "1 hour 29 mins"
+  },
+
+  {
+    "id": 499772,
+    "movieName": "Meet Me In St. Gallen",
+    "tagline": "",
+    "rating": 4.9,
+    "vote_count": 20,
+    "releaseYear": "2018",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/uGntNjUx6YAzbVy7RDgxWnWsdet.jpg",
+    "description": "The story of Jesse and Celeste who meets at an unexpected time in their lives. They then realize their names are the same as the characters in the popular break-up romantic comedy, Celeste and Jesse Forever.",
+    "budget": 0,
+    "revenue": 0,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "duration": "2 hour 14 mins"
+  },
+  {
+    "id": 228150,
+    "movieName": "Fury",
+    "tagline": "War never ends quietly.",
+    "rating": 7.4,
+    "vote_count": 4936,
+    "releaseYear": "2014",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/pfte7wdMobMF4CVHuOxyu6oqeeA.jpg",
+    "description": "Last months of World War II in April 1945. As the Allies make their final push in the European Theater, a battle-hardened U.S. Army sergeant in the 2nd Armored Division named Wardaddy commands a Sherman tank called \"Fury\" and its five-man crew on a deadly mission behind enemy lines. Outnumbered and outgunned, Wardaddy and his men face overwhelming odds in their heroic attempts to strike at the heart of Nazi Germany.",
+    "budget": 68000000,
+    "revenue": 211817906,
+    "genres": [
+      "War",
+      "Drama",
+      "Action"
+    ],
+    "duration": "2 hour 14 mins"
+  },
+  {
+    "id": 98566,
+    "movieName": "Teenage Mutant Ninja Turtles",
+    "tagline": "Mysterious. Dangerous. Reptilious. You've never seen heroes like this.",
+    "rating": 5.8,
+    "vote_count": 3224,
+    "releaseYear": "2014",
+    "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/hd/5d830b134127975.61ce89a78d10c.jpg",
+    "description": "The city needs heroes. Darkness has settled over New York City as Shredder and his evil Foot Clan have an iron grip on everything from the police to the politicians. The future is grim until four unlikely outcast brothers rise from the sewers and discover their destiny as Teenage Mutant Ninja Turtles. The Turtles must work with fearless reporter April and her wise-cracking cameraman Vern Fenwick to save the city and unravel Shredder's diabolical plan.",
+    "budget": 125000000,
+    "revenue": 477200000,
+    "genres": [
+      "Science Fiction",
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Comedy"
+    ],
+    "duration": "1 hour 41 mins"
+  },
+  {
+    "id": 400617,
+    "movieName": "Phantom Thread",
+    "tagline": "",
+    "rating": 7.3,
+    "vote_count": 637,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/6jsqmMgR75VYC9AM6eToMJh3RxF.jpg",
+    "description": "In the glamour of 1950s post-war London, renowned dressmaker Reynolds Woodcock and his sister Cyril are at the center of British fashion. Women come and go through Woodcock’s life, providing the confirmed bachelor with inspiration and companionship, until he comes across a young, strong-willed woman, Alma, who soon becomes a fixture in his life as his muse and lover. Once controlled and planned, he finds his carefully tailored life disrupted by love.",
+    "budget": 35000000,
+    "revenue": 34283740,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "duration": "2 hour 10 mins"
+  },
+  {
+    "id": 210577,
+    "movieName": "Gone Girl",
+    "tagline": "You don't know what you've got 'til it's...",
+    "rating": 7.9,
+    "vote_count": 7458,
+    "releaseYear": "2014",
+    "imageUrl": "https://i.etsystatic.com/21145079/r/il/58fca6/3379257228/il_570xN.3379257228_pdzz.jpg",
+    "description": "With his wife's disappearance having become the focus of an intense media circus, a man sees the spotlight turned on him when it's suspected that he may not be innocent.",
+    "budget": 61000000,
+    "revenue": 369330363,
+    "genres": [
+      "Mystery",
+      "Thriller",
+      "Drama"
+    ],
+    "duration": "2 hour 25 mins"
+  },
+  {
+    "id": 483877,
+    "movieName": "15+ IQ Krachoot",
+    "tagline": "",
+    "rating": 3.3,
+    "vote_count": 6,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/1RxnEJzXYv5GgPszbHNsWTXPC6M.jpg",
+    "description": "A teenage comedy film about a young Yorkie. \"Rising\" opened the first movie on screen.  The story of fun gangs of teenage age 15+ hormones gurgling at the curiosity to try on their love and sex has spread out.",
+    "budget": 0,
+    "revenue": 0,
+    "genres": [
+      "Comedy"
+    ],
+    "duration": "1 hour 44 mins"
+  },
+
+  {
+    "id": 399035,
+    "movieName": "The Commuter",
+    "tagline": "Lives are on the line",
+    "rating": 5.8,
+    "vote_count": 655,
+    "releaseYear": "2018",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/rDeGK6FIUfVcXmuBdEORPAGPMNg.jpg",
+    "description": "A businessman on his daily commute home gets unwittingly caught up in a criminal conspiracy that threatens not only his life but the lives of those around him.",
+    "budget": 30000000,
+    "revenue": 105652788,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "duration": "1 hour 45 mins"
+  },
+  
+  {
+    "id": 166426,
+    "movieName": "Pirates of the Caribbean: Dead Men Tell No Tales",
+    "tagline": "",
+    "rating": 6.5,
+    "vote_count": 4420,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/xbpSDU3p7YUGlu9Mr6Egg2Vweto.jpg",
+    "description": "Thrust into an all-new adventure, a down-on-his-luck Capt. Jack Sparrow feels the winds of ill-fortune blowing even more strongly when deadly ghost sailors led by his old nemesis, the evil Capt. Salazar, escape from the Devil's Triangle. Jack's only hope of survival lies in seeking out the legendary Trident of Poseidon, but to find it, he must forge an uneasy alliance with a brilliant and beautiful astronomer and a headstrong young man in the British navy.",
+    "budget": 230000000,
+    "revenue": 794191988,
+    "genres": [
+      "Adventure",
+      "Action",
+      "Fantasy",
+      "Comedy"
+    ],
+    "duration": "2 hour 9 mins"
+  },
+ 
+  {
+    "id": 392044,
+    "movieName": "Murder on the Orient Express",
+    "tagline": "Everyone is a suspect",
+    "rating": 6.7,
+    "vote_count": 2616,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/iBlfxlw8qwtUS0R8YjIU7JtM6LM.jpg",
+    "description": "Genius Belgian detective Hercule Poirot investigates the murder of an American tycoon aboard the Orient Express train.",
+    "budget": 55000000,
+    "revenue": 348322890,
+    "genres": [
+      "Crime",
+      "Drama",
+      "Mystery"
+    ],
+    "duration": "1 hour 54 mins"
+  },
+  {
+    "id": 316029,
+    "movieName": "The Greatest Showman",
+    "tagline": "",
+    "rating": 8,
+    "vote_count": 1727,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/dfhztJRiElqmYW4kpvjYe1gENsD.jpg",
+    "description": "The story of American showman P.T. Barnum, founder of the circus that became the famous traveling Ringling Bros. and Barnum & Bailey Circus.",
+    "budget": 84000000,
+    "revenue": 399979606,
+    "genres": [
+      "Drama",
+      "Music"
+    ],
+    "duration": "1 hour 45 mins"
+  },
+  {
+    "id": 263115,
+    "movieName": "Logan",
+    "tagline": "His time has come",
+    "rating": 7.7,
+    "vote_count": 8578,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/gGBu0hKw9BGddG8RkRAMX7B6NDB.jpg",
+    "description": "In the near future, a weary Logan cares for an ailing Professor X in a hideout on the Mexican border. But Logan's attempts to hide from the world and his legacy are upended when a young mutant arrives, pursued by dark forces.",
+    "budget": 97000000,
+    "revenue": 616801808,
+    "genres": [
+      "Action",
+      "Drama",
+      "Science Fiction"
+    ],
+    "duration": "2 hour 21 mins"
+  },
+  
+  {
+    "id": 374720,
+    "movieName": "Dunkirk",
+    "tagline": "Survival is Victory",
+    "rating": 7.4,
+    "vote_count": 5697,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/ebSnODDg9lbsMIaWg2uAbjn7TO5.jpg",
+    "description": "The story of the miraculous evacuation of Allied soldiers from Belgium, Britain, Canada and France, who were cut off and surrounded by the German army from the beaches and harbour of Dunkirk between May 26th and June 4th 1940 during World War II.",
+    "budget": 100000000,
+    "revenue": 525573161,
+    "genres": [
+      "Action",
+      "Drama",
+      "History",
+      "Thriller",
+      "War"
+    ],
+    "duration": "1 hour 54 mins"
+  },
+  {
+    "id": 120,
+    "movieName": "The Lord of the Rings: The Fellowship of the Ring",
+    "tagline": "One ring to rule them all",
+    "rating": 8.1,
+    "vote_count": 10730,
+    "releaseYear": "2001",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/bi9JddwTwBt3ixGLAiMAF7OXMbV.jpg",
+    "description": "Young hobbit Frodo Baggins, after inheriting a mysterious ring from his uncle Bilbo, must leave his home in order to keep it from falling into the hands of its evil creator. Along the way, a fellowship is formed to protect the ringbearer and make sure that the ring arrives at its final destination: Mt. Doom, the only place where it can be destroyed.",
+    "budget": 93000000,
+    "revenue": 871368364,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Action"
+    ],
+    "duration": "3 hour 3 mins"
+  },
+  {
+    "id": 299536,
+    "movieName": "Avengers: Infinity War",
+    "tagline": "An entire universe. Once and for all.",
+    "rating": 0,
+    "vote_count": 0,
+    "releaseYear": "2018",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+    "description": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+    "budget": 500000000,
+    "revenue": 0,
+    "genres": [
+      "Adventure",
+      "Science Fiction",
+      "Fantasy",
+      "Action"
+    ],
+    "duration": "2 hour 25 mins"
+  },
+  {
+    "id": 68721,
+    "movieName": "Iron Man 3",
+    "tagline": "Unleash the power behind the armor.",
+    "rating": 6.8,
+    "vote_count": 10461,
+    "releaseYear": "2013",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/1Ilv6ryHUv6rt9zIsbSEJUmmbEi.jpg",
+    "description": "When Tony Stark's world is torn apart by a formidable terrorist called the Mandarin, he starts an odyssey of rebuilding and retribution.",
+    "budget": 200000000,
+    "revenue": 1215439994,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Science Fiction"
+    ],
+    "duration": "2 hour 10 mins"
+  },
+  
+  {
+    "id": 293167,
+    "movieName": "Kong: Skull Island",
+    "tagline": "All hail the king",
+    "rating": 6.3,
+    "vote_count": 4202,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/r2517Vz9EhDhj88qwbDVj8DCRZN.jpg",
+    "description": "Explore the mysterious and dangerous home of the king of the apes as a team of explorers ventures deep inside the treacherous, primordial island.",
+    "budget": 185000000,
+    "revenue": 566652812,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "duration": "2 hour 18 mins"
+  },
+
+  {
+    "id": 129,
+    "movieName": "Spirited Away",
+    "tagline": "",
+    "rating": 8.4,
+    "vote_count": 5095,
+    "releaseYear": "2001",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/dL11DBPcRhWWnJcFXl9A07MrqTI.jpg",
+    "description": "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.",
+    "budget": 15000000,
+    "revenue": 274925095,
+    "genres": [
+      "Animation",
+      "Family",
+      "Fantasy"
+    ],
+    "duration": "2 hour 14 mins"
+  },
+  {
+    "id": 390043,
+    "movieName": "The Hitman's Bodyguard",
+    "tagline": "Get Triggered",
+    "rating": 6.7,
+    "vote_count": 1784,
+    "releaseYear": "2017",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/5CGjlz2vyBhW5xHW4eNOZIdgzYq.jpg",
+    "description": "The world's top bodyguard gets a new client, a hit man who must testify at the International Court of Justice. They must put their differences aside and work together to make it to the trial on time.",
+    "budget": 30000000,
+    "revenue": 64897007,
+    "genres": [
+      "Action",
+      "Comedy"
+    ],
+    "duration": "1 hour 58 mins"
+  },
+  {
+    "id": 283366,
+    "movieName": "Miss Peregrine's Home for Peculiar Children",
+    "tagline": "Stay peculiar",
+    "rating": 6.6,
+    "vote_count": 4407,
+    "releaseYear": "2016",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/tzYkC0vqX8Dokuwynhz1lnWWgWT.jpg",
+    "description": "A teenager finds himself transported to an island where he must help protect a group of orphans with special powers from creatures intent on destroying them.",
+    "budget": 111000000,
+    "revenue": 296485718,
+    "genres": [
+      "Drama",
+      "Fantasy",
+      "Adventure"
+    ],
+    "duration": "2 hour 3 mins"
+  },
+  {
+    "id": 559,
+    "movieName": "Spider-Man 3",
+    "tagline": "The battle within.",
+    "rating": 6,
+    "vote_count": 4834,
+    "releaseYear": "2007",
+    "imageUrl": "https://image.tmdb.org/t/p/w500/rLwhewWypBL88VFGf6haSdnNj2U.jpg",
+    "description": "The seemingly invincible Spider-Man goes up against an all-new crop of villain – including the shape-shifting Sandman. While Spider-Man’s superpowers are altered by an alien organism, his alter ego, Peter Parker, deals with nemesis Eddie Brock and also gets caught up in a love triangle.",
+    "budget": 258000000,
+    "revenue": 890871626,
+    "genres": [
+      "Fantasy",
+      "Action",
+      "Adventure"
+    ],
+    "duration": "2 hour 18 mins"
+  },
+  {
+    "imageUrl": "https://images.justwatch.com/poster/173624901/s718/i-am-legend.jpg",
+    "movieName": "I Am Legend",
+    "releaseYear": 2007,
+    "genres": [
+      "Drama, Horror, Sci-Fi"
+    ],
+    "index": 1,
+    "description": "Robert Neville (Will Smith), a brilliant scientist, is a survivor of a man-made plague that transforms humans into bloodthirsty mutants. He wanders alone through New York City, calling out for other possible survivors, and works on finding a cure for the plague using his own immune blood. Neville knows he is badly outnumbered and the odds are against him, and all the while, the infected wait for him to make a mistake that will deliver Neville into their hands.",
+    "duration": "1 hour 48 mins",
+    "rating": 5.4
+  },
+  {
+    "imageUrl": "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/300-naxart-studio.jpg",
+    "movieName": "300",
+    "releaseYear": 2006,
+    "genres": [
+      "Action, Drama, Fantasy"
+    ],
+    "index": 2,
+    "description": "In 480 B.C. a state of war exists between Persia, led by King Xerxes (Rodrigo Santoro), and Greece. At the Battle of Thermopylae, Leonidas (Gerard Butler), king of the Greek city state of Sparta, leads his badly outnumbered warriors against the massive Persian army. Though certain death awaits the Spartans, their sacrifice inspires all of Greece to unite against their common enemy.",
+    "duration": "1 hour 48 mins",
+    "rating": 8
+  },
+  {
+    "imageUrl": "https://media.comicbook.com/2018/03/avengers-infinity-war-poster-1093756.jpeg",
+    "movieName": "The Avengers",
+    "releaseYear": 2012,
+    "genres": [
+      "Action, Sci-Fi, Thriller"
+    ],
+    "index": 3,
+    "description": "When Thor's evil brother, Loki (Tom Hiddleston), gains access to the unlimited power of the energy cube called the Tesseract, Nick Fury (Samuel L. Jackson), director of S.H.I.E.L.D., initiates a superhero recruitment effort to defeat the unprecedented threat to Earth. Joining Fury's dream team are Iron Man (Robert Downey Jr.), Captain America (Chris Evans), the Hulk (Mark Ruffalo), Thor (Chris Hemsworth), the Black Widow (Scarlett Johansson) and Hawkeye (Jeremy Renner).",
+    "duration": "2 hour 10 mins",
+    "rating": 9.3
+  },
+  {
+    "imageUrl": "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_.jpg",
+    "movieName": "The Wolf of Wall Street",
+    "releaseYear": 2013,
+    "genres": [
+      "Biography, Comedy, Crime"
+    ],
+    "index": 4,
+    "description": "In 1987, Jordan Belfort (Leonardo DiCaprio) takes an entry-level job at a Wall Street brokerage firm. By the early 1990s, while still in his 20s, Belfort founds his own firm, Stratton Oakmont. Together with his trusted lieutenant (Jonah Hill) and a merry band of brokers, Belfort makes a huge fortune by defrauding wealthy investors out of millions. However, while Belfort and his cronies partake in a hedonistic brew of sex, drugs and thrills, the SEC and the FBI close in on his empire of excess.",
+    "duration": "1 hour 41 mins",
+    "rating": 8.1
+  },
+  {
+    "movieName": "Interstellar",
+    "releaseYear": "2014",
+    "genres": [
+      "Adventure, Drama, Sci-Fi"
+    ],
+    "imageUrl": "https://www.themoviedb.org/t/p/original/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+    "description": "In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth's population to a new home via a wormhole. But first, Brand must send former NASA pilot Cooper (Matthew McConaughey) and a team of researchers through the wormhole and across the galaxy to find out which of three planets could be mankind's new home.",
+    "duration": "2 hour 30 mins",
+    "rating": 10
+  },
+  {
+    "movieName": "Game of Thrones",
+    "releaseYear": "2011",
+    "genres": [
+      "Adventure, Drama, Fantasy"
+    ],
+    "imageUrl": "https://m.media-amazon.com/images/M/MV5BN2IzYzBiOTQtNGZmMi00NDI5LTgxMzMtN2EzZjA1NjhlOGMxXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg",
+    "description": "George R.R. Martin's best-selling book series: A Song of Ice and Fire is brought to the screen as HBO sinks its considerable storytelling teeth into the medieval fantasy epic. It's the depiction of two powerful families -- kings and queens, knights and renegades, liars and honest men -- playing a deadly game for control of the Seven Kingdoms of Westeros, and to sit atop the Iron Throne. Martin is credited as a co-executive producer and one of the writers for the series, whose shooting locations include Northern Ireland, Malta, Croatia and Spain.",
+    "duration": "6 hour 23 mins",
+    "rating": 9.2
+  },
+  {
+    "movieName": "Vikings",
+    "releaseYear": "2013",
+    "genres": [
+      "Action, Drama, History"
+    ],
+    "imageUrl": "https://i.pinimg.com/originals/23/44/d5/2344d5032bd0ed11681ea5eae90bd04f.jpg",
+    "description": "Viking Ragnar Lothbrok is a young farmer and family man who is frustrated by the policies of Earl Haraldson, his local chieftain who sends his Viking raiders east to the Baltic states and Russia, whose residents are as poor as the Norsemen. Ragnar wants to head west, across the ocean, to discover new civilizations. With assistance from his friend Floki, Ragnar builds a faster, sleeker fleet of boats to help him make it to the Western world. Through the years Ragnar, who claims to be a direct descendant of the god Odin, continues to struggle with Earl until the two face each other in a final battle for supremacy. Following that, Ragnar goes on a search for new lands to conquer.",
+    "duration": "1 hour 30 mins",
+    "rating": 6.2
+  },
+  {
+    "movieName": "Gotham",
+    "releaseYear": "2014",
+    "genres": [
+      "Action, Crime, Drama"
+    ],
+    "imageUrl": "https://m.media-amazon.com/images/M/MV5BODQyYTM1YWQtYmZmNC00YjYyLWFiYTMtYjk4MmU5NmNlZTYxXkEyXkFqcGdeQXVyNjU1MDY3NjQ@._V1_.jpg",
+    "description": "James Gordon is a rising detective in the dangerously corrupt Gotham City, where his late father was a successful district attorney. Brave, honest and determined to prove himself, Gordon must navigate the dirty politics of Gotham's justice system as well as the rise of malevolent villains, including The Penguin, The Riddler and Catwoman. The series also chronicles the life of young Bruce Wayne, who becomes an orphan when his billionaire parents Thomas and Martha Wayne are murdered. Gordon becomes a friend to young Bruce as he finds his way toward becoming the iconic caped crusader.",
+    "duration": "2 hour 21 mins",
+    "rating": 6.4
+  },
+  {
+    "movieName": "Narcos",
+    "releaseYear": "2015",
+    "genres": [
+      "Biography, Crime, Drama"
+    ],
+    "imageUrl": "https://m.media-amazon.com/images/I/81nTw+95MyL.jpg",
+    "description": "Netflix chronicles the rise of the cocaine trade in Colombia and the gripping real-life stories of drug kingpins of the late '80s in this raw, gritty original series. Also detailed are the actions taken by law enforcement as they battle in the war on drugs, targeting notorious and powerful figures that include drug lord Pablo Escobar. As efforts are made to control cocaine, one of the world's most valuable commodities, the many entities involved -- legal, political, police, military and civilian -- find themselves in conflict.",
+    "duration": "8 hour 18 mins",
+    "rating": 9.2
+  },
+  {
+    "movieName": "Doctor Strange",
+    "releaseYear": "2016",
+    "genres": [
+      "Action, Adventure, Fantasy",
+      "SCI-FI"
+    ],
+    "imageUrl": "https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg",
+    "description": "Dr. Stephen Strange's (Benedict Cumberbatch) life changes after a car accident robs him of the use of his hands. When traditional medicine fails him, he looks for healing, and hope, in a mysterious enclave. He quickly learns that the enclave is at the front line of a battle against unseen dark forces bent on destroying reality. Before long, Strange is forced to choose between his life of fortune and status or leave it all behind to defend the world as the most powerful sorcerer in existence.",
+    "duration": "1 hour 33 mins",
+    "rating": 9.1
+  },
+  {
+    "movieName": "Ayein?",
+    "releaseYear": "2023",
+    "genres": [
+      "Comedy",
+      "Tragedy"
+    ],
+    "imageUrl": "https://preview.redd.it/started-the-day-with-an-english-breakfast-but-nothing-beats-v0-eltd9skzvatb1.jpeg?width=256&format=pjpg&auto=webp&s=1e9771390b0d8964cf8beb88bd746c5c9b12026f",
+    "description": "Eight-year-old child whose world is filled with wonders that no one else seems to appretiate are just not important in the world of adults, who are much more interested in things like homework, marks and neatness. And Ishaan just cannot seem to get anything right in class. When he gets into far more trouble than his parents can handle, he is packed off to a boarding school to 'be disciplined'. Things are no different at his new school, and Ishaan has to contend with the added trauma of separation from his family.",
+    "duration": "30 mins",
+    "rating": 9.9
+  }
+]
