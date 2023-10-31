@@ -21,8 +21,8 @@ const MovieSortBy = ({ sortBy, onSortChange }) => {
     return (
         <>
             <div className="input-field dropdown-container">
-                <span className="label" >Sort By : </span>
-                <select id="dropdown" className='select' value={sortBy} onChange={(e) => onSortChange(e.target.value)}>
+                <span className="label">Sort By : </span>
+                <select id="dropdown" className="select" value={sortBy} onChange={(e) => onSortChange(e.target.value)}>
                     <option value="releaseDate">Release Dates</option>
                     <option value="title">Title</option>
                 </select>

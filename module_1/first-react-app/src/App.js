@@ -4,7 +4,7 @@ import MovieGenre from './components/MovieGenre.js';
 import CounterLegacy from './components/CounterLegacy.js';
 import MovieSortBy from './components/MovieSortBy.js';
 import Movie from './components/Movie.js';
-import MovieMetadata from './MovieMetadata.json';
+import MovieMetadata from './moviemetadata.json';
 import MovieDetails from './components/MovieDetails.js';
 
 function App() {
@@ -26,7 +26,6 @@ function App() {
 
   const handleGenreSelect = (genre) => {
     setSelectedGenre(genre);
-    //alert('Genre is: ' + genre);
   };
 
   const handleSearch = (query) => {
@@ -34,8 +33,6 @@ function App() {
   }
 
   const handleTileClick = (movie) => {
-    //alert("trying to select movie: ", movie);
-    console.log(movie.movieName);
     setSelectedMovie(movie);
     movieDetailRef.current.scrollIntoView({ behavior: 'smooth' });
   };
@@ -44,7 +41,7 @@ function App() {
     setSelectedMovie(null);
   };
 
-  const [sortBy, setSortBy] = useState('releaseDate'); // State to manage sorting criteria
+  const [sortBy, setSortBy] = useState('releaseDate');
 
   const handleSortChange = (value) => {
     setSortBy(value);
@@ -99,7 +96,7 @@ function App() {
                   <div className="col s6 m4 l3 xxl" key={movie.imageUrl}>
                     <Movie imageUrl={movie.imageUrl} movieName={movie.movieName}
                       releaseYear={movie.releaseYear} genres={movie.genres}
-                      onTileClick={() => handleTileClick(movie)} >
+                      onClick={() => handleTileClick(movie)} >
                     </Movie>
                   </div>
                 )
