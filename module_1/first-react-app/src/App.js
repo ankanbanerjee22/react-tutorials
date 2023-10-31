@@ -96,7 +96,7 @@ function App() {
               {/*  fetching from movie */}
               {MovieMetadata.map((movie) => {
                 return (
-                  <div className="col s3 m3 l3 xxl" key={movie.imageUrl}>
+                  <div className="col s6 m4 l3 xxl" key={movie.imageUrl}>
                     <Movie imageUrl={movie.imageUrl} movieName={movie.movieName}
                       releaseYear={movie.releaseYear} genres={movie.genres}
                       onTileClick={() => handleTileClick(movie)} >
