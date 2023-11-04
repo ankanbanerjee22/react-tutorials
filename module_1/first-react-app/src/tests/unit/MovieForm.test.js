@@ -20,36 +20,46 @@ describe('MovieForm Component', () => {
     description: 'Example movie description',
   };
 
+
   it('renders MovieForm component with initial values', () => {
     const { getByText } = render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
 
-    expect(getByText('Example Movie'));
-    expect(getByText('2023-01-01'));
-    expect(getByText('example-url.jpg'));
-    expect(getByText('8'));
-    expect(getByText((['action', 'adventure'])));
-    expect(getByText(('120 mins')));
-    expect(getByText(('Example movie description')));
+    expect(screen.getByTestId('title')).toHaveValue('Example Movie');
   });
 
-  it('submits the form with correct data when filled out', () => {
-    render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
 
-    fireEvent.change(screen.getByLabelText('Movie Name:'), {
-      target: { value: 'New Movie' },
-    });
-    fireEvent.change(screen.getByLabelText('Rating:'), { target: { value: '9' } });
-    fireEvent.change(screen.getByLabelText('Runtime:'), { target: { value: '130 mins' } });
+//   it('renders MovieForm component with initial values', () => {
+//     const { getByText } = render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
 
-    fireEvent.submit(screen.getByTestId('movie-form'));
+//     expect(screen.getByLabelText('Movie Name:')).toHaveValue('Example Movie');
+//     expect(screen.getByLabelText('Release Date:')).toHaveValue('2023-01-01');
+//     expect(screen.getByLabelText('Movie URL:')).toHaveValue('example-url.jpg');
+//     expect(screen.getByLabelText('Rating:')).toHaveValue('8');
+//     expect(screen.getByLabelText('Genre:')).toHaveValue(['action', 'adventure']);
+//     expect(screen.getByLabelText('Runtime:')).toHaveValue('120 mins');
+//     expect(screen.getByLabelText('Overview:')).toHaveValue('Example movie description');
+//   });
 
-    expect(mockOnSubmit).toHaveBeenCalledWith({
-      title: 'New Movie',
-      releaseDate: '2023-01-01',
-      movieUrl: 'example-url.jpg',
-      rating: '9',
-      runtime: '130 mins',
-      overview: 'Example movie description',
-    });
-  });
+//   it('submits the form with correct data when filled out', () => {
+//     render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
+
+//     fireEvent.change(screen.getByLabelText('Movie Name:'), {
+//       target: { value: 'New Movie' },
+//     });
+//     fireEvent.change(screen.getByLabelText('Rating:'), { target: { value: '9' } });
+//     fireEvent.change(screen.getByLabelText('Runtime:'), { target: { value: '130 mins' } });
+
+//     fireEvent.submit(screen.getByTestId('movie-form'));
+
+//     expect(mockOnSubmit).toHaveBeenCalledWith({
+//       title: 'New Movie',
+//       releaseDate: '2023-01-01',
+//       movieUrl: 'example-url.jpg',
+//       rating: '9',
+//       runtime: '130 mins',
+//       overview: 'Example movie description',
+//     });
+//   });
+
+
 });

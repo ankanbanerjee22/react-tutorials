@@ -44,6 +44,7 @@ const MovieForm = ({ initialMovie, onSubmit }) => {
           <div className="input-style-form-label">Movie Name:</div>
           <div className="input-style-form">
             <input id="title"
+              data-testid="title"
               type="text"
               className="input-style-form"
               name="title"
