@@ -47,10 +47,10 @@
     "budget": 200000000,
     "revenue": 1245257672,
     "genres": [
-      "Action",
-      "Adventure",
-      "Fantasy",
-      "Science Fiction"
+      "action",
+      "adventure",
+      "fantasy",
+      "sci-fi"
     ],
     "duration": "2 hour 14 mins"
   },
