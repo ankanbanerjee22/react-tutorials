@@ -4,7 +4,7 @@ import MovieGenre from './components/MovieGenre.js';
 import CounterLegacy from './components/CounterLegacy.js';
 import MovieSortBy from './components/MovieSortBy.js';
 import Movie from './components/Movie.js';
-import MovieMetadata from './moviemetadata.json';
+import MovieMetadata from './movie-metadata.json';
 import MovieDetails from './components/MovieDetails.js';
 import Dialog from './components/Dialog.js';
 import MovieForm from './components/MovieForm.js';
