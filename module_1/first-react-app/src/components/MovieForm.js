@@ -34,6 +34,7 @@ const MovieForm = ({ initialMovie, onSubmit }) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const formValues = Object.fromEntries(new FormData(event.target));
+    formValues.rating = parseFloat(formValues.rating);
     onSubmit(formValues);
   };
 
@@ -57,6 +58,7 @@ const MovieForm = ({ initialMovie, onSubmit }) => {
           <div className="input-style-form-label">Release Date:</div>
           <div className="input-style-form">
             <input id="releaseDate"
+              data-testid="releaseDate"
               type="date"
               placeholder="Release date"
               className="datepicker input-style-form"
@@ -71,6 +73,7 @@ const MovieForm = ({ initialMovie, onSubmit }) => {
           <div className="input-style-form-label">Movie URL:</div>
           <div className="input-style-form">
             <input id="movieUrl"
+              data-testid="movieUrl"
               type="url"
               className="input-style-form"
               name="movieUrl"
@@ -83,6 +86,7 @@ const MovieForm = ({ initialMovie, onSubmit }) => {
           <div className="input-style-form-label">Rating:</div>
           <div className="input-style-form">
             <input id="rating"
+              data-testid="rating"
               type="number"
               className="input-style-form"
               name="rating"
@@ -96,7 +100,7 @@ const MovieForm = ({ initialMovie, onSubmit }) => {
         <div className="col s12 m8 input-field">
           <div className="input-style-form-label">Genre:</div>
           <div className="input-style-form" >
-            <select multiple id="dropdown" className="input-style-form" defaultValue={selectedGenres} onSelect={handleGenreChange}>
+            <select multiple id="dropdown" data-testid="dropdown" className="input-style-form" defaultValue={selectedGenres} onSelect={handleGenreChange}>
               {genres.map(option => (
                 <option key={option.value} value={option.value}>{option.label}</option>
               ))}
@@ -107,6 +111,7 @@ const MovieForm = ({ initialMovie, onSubmit }) => {
           <div className="input-style-form-label">Runtime:</div>
           <div className="input-style-form">
             <input id="runtime"
+              data-testid="runtime"
               type="text"
               className="input-style-form"
               name="runtime"
@@ -120,6 +125,7 @@ const MovieForm = ({ initialMovie, onSubmit }) => {
           <div className="input-style-form-label">Overview:</div>
           <div className="input-style-form">
             <textarea id="overview"
+              data-testid="overview"
               className="materialize-textarea"
               name="overview"
               placeholder="Movie overview"

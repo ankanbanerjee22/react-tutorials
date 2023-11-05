@@ -1,65 +1,90 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect'; 
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import MovieForm from '../../components/MovieForm';
 
-describe('MovieForm Component', () => {
-  global.M = {
-    AutoInit: jest.fn(),
-  };
+describe('MovieForm component', () => {
 
-  const mockOnSubmit = jest.fn();
+    global.M = {
+        AutoInit: jest.fn(),
+    };
 
-  const initialMovie = {
-    movieName: 'Example Movie',
-    releaseYear: '2023',
-    imageUrl: 'example-url.jpg',
-    rating: 8,
-    genres: ['action', 'adventure'],
-    duration: '120 mins',
-    description: 'Example movie description',
-  };
+    const initialMovie = {
+        movieName: 'Example Movie',
+        releaseYear: '2022',
+        imageUrl: 'http://example.com/poster.jpg',
+        rating: 8,
+        genres: ['action', 'adventure'],
+        duration: '120',
+        description: 'A sample movie description',
+    };
 
+    const mockOnSubmit = jest.fn();
 
-  it('renders MovieForm component with initial values', () => {
-    const { getByText } = render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
+    it('renders correctly with initial data', () => {
+        const { getByTestId, getByText } = render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
 
-    expect(screen.getByTestId('title')).toHaveValue('Example Movie');
-  });
+        expect(getByTestId('movie-form')).toBeInTheDocument();
+        expect(getByTestId('title')).toHaveValue(initialMovie.movieName);
+        expect(getByTestId('releaseDate')).toHaveValue('2022-01-01');
+        expect(getByTestId('movieUrl')).toHaveValue(initialMovie.imageUrl);
+        expect(getByTestId('rating')).toHaveValue(initialMovie.rating);
+        expect(getByTestId('dropdown')).toHaveValue(['action', 'adventure']);
+        expect(getByTestId('runtime')).toHaveValue(initialMovie.duration);
+        expect(getByTestId('overview')).toHaveValue(initialMovie.description);
+    });
 
+    it('calls onSubmit with form data when submitted', () => {
+        const { getByTestId } = render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
 
-//   it('renders MovieForm component with initial values', () => {
-//     const { getByText } = render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
+        fireEvent.submit(getByTestId('movie-form'));
 
-//     expect(screen.getByLabelText('Movie Name:')).toHaveValue('Example Movie');
-//     expect(screen.getByLabelText('Release Date:')).toHaveValue('2023-01-01');
-//     expect(screen.getByLabelText('Movie URL:')).toHaveValue('example-url.jpg');
-//     expect(screen.getByLabelText('Rating:')).toHaveValue('8');
-//     expect(screen.getByLabelText('Genre:')).toHaveValue(['action', 'adventure']);
-//     expect(screen.getByLabelText('Runtime:')).toHaveValue('120 mins');
-//     expect(screen.getByLabelText('Overview:')).toHaveValue('Example movie description');
-//   });
+        const expectedFormData = {
+            title: initialMovie.movieName,
+            releaseDate: '2022-01-01',
+            movieUrl: initialMovie.imageUrl,
+            rating: 8,
+            runtime: initialMovie.duration,
+            overview: initialMovie.description,
+        };
 
-//   it('submits the form with correct data when filled out', () => {
-//     render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
+        expect(mockOnSubmit).toHaveBeenCalledWith(expectedFormData);
+    });
 
-//     fireEvent.change(screen.getByLabelText('Movie Name:'), {
-//       target: { value: 'New Movie' },
-//     });
-//     fireEvent.change(screen.getByLabelText('Rating:'), { target: { value: '9' } });
-//     fireEvent.change(screen.getByLabelText('Runtime:'), { target: { value: '130 mins' } });
+    it('updates rating input field correctly', () => {
+        const { getByTestId } = render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
+        fireEvent.change(getByTestId('rating'), { target: { value: 9 } });
+        expect(getByTestId('rating')).toHaveValue(9);
+    });
 
-//     fireEvent.submit(screen.getByTestId('movie-form'));
+    it('updates movie name input field correctly', () => {
+        const { getByTestId } = render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
+        fireEvent.change(getByTestId('title'), { target: { value: 'New Movie' } });
+        expect(getByTestId('title')).toHaveValue('New Movie');
+    });
 
-//     expect(mockOnSubmit).toHaveBeenCalledWith({
-//       title: 'New Movie',
-//       releaseDate: '2023-01-01',
-//       movieUrl: 'example-url.jpg',
-//       rating: '9',
-//       runtime: '130 mins',
-//       overview: 'Example movie description',
-//     });
-//   });
+    it('updates release date input field correctly', () => {
+        const { getByTestId } = render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
+        fireEvent.change(getByTestId('releaseDate'), { target: { value: '2022-12-15' } });
+        expect(getByTestId('releaseDate')).toHaveValue('2022-12-15');
+    });
 
+    it('updates movie URL input field correctly', () => {
+        const { getByTestId } = render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
+        fireEvent.change(getByTestId('movieUrl'), { target: { value: 'http://newexample.com/poster.jpg' } });
+        expect(getByTestId('movieUrl')).toHaveValue('http://newexample.com/poster.jpg');
+    });
+
+    it('updates runtime input field correctly', () => {
+        const { getByTestId } = render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
+        fireEvent.change(getByTestId('runtime'), { target: { value: '2h 45min' } });
+        expect(getByTestId('runtime')).toHaveValue('2h 45min');
+    });
+
+    it('updates overview textarea field correctly', () => {
+        const { getByTestId } = render(<MovieForm initialMovie={initialMovie} onSubmit={mockOnSubmit} />);
+        fireEvent.change(getByTestId('overview'), { target: { value: 'New overview text' } });
+        expect(getByTestId('overview')).toHaveValue('New overview text');
+    });
 
 });

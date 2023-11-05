@@ -12,11 +12,11 @@ const Dialog = ({ title, children, onClose }) => {
 
         // Open the modal
         const modalInstance = window.M.Modal.getInstance(modalElement);
-        modalInstance.open();
+        modalInstance && modalInstance.open();
 
         // Clean up modal instance on component unmount
         return () => {
-            modalInstance.destroy();
+            modalInstance && modalInstance.destroy();
         };
     }, []);
 
