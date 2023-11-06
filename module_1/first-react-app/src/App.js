@@ -133,6 +133,7 @@ function App() {
             <select className="black" value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
               <option value="Add Movie">Add Movie</option>
               <option value="Edit Movie">Edit Movie</option>
+              <option value="Delete Movie">Delete Movie</option>
             </select>
           </div>
             {selectedOption === "Add Movie" && (
@@ -147,6 +148,12 @@ function App() {
               </button>
             )}
 
+            {selectedOption === "Delete Movie" && (
+              <button className="btn waves-effect waves-orange yellow black-text btn-large" onClick={() => setIsDialogOpen(true)}>
+                Delete Movie
+              </button>
+            )}
+
             {isDialogOpen && selectedOption === "Add Movie" && (
               <Dialog title="Add Movie" onClose={handleCloseDialog}>
                 <MovieForm initialMovie={null} onSubmit={handleAddMovie} />
@@ -158,11 +165,17 @@ function App() {
                 <MovieForm initialMovie={MovieMetadata[2]} onSubmit={handleEditMovie} />
               </Dialog>
             )}
+
+            {isDialogOpen && selectedOption === "Delete Movie" && (
+              <Dialog title="Delete Movie" onClose={handleCloseDialog}>
+                <MovieForm initialMovie={MovieMetadata[2]} deleteMovie={true} onSubmit={handleEditMovie} />
+              </Dialog>
+            )}
           </span></div>
         </li>
       </ul>
     </>
-    
+
   );
 
 }

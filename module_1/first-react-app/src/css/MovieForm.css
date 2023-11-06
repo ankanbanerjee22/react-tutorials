@@ -198,7 +198,7 @@ materlize select overrides
 
 
 .modal.modal-fixed-footer {
-  min-width: 70vw !important; 
+  min-width: 60vw !important; 
   min-height: 80vh; 
 }
 

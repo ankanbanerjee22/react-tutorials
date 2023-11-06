@@ -31,7 +31,45 @@
     padding: 2px 15px !important;
     margin-top: 0px !important;
     min-width: 10em !important;
+
+    box-shadow: 1px solid white !important;
 }
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid white !important;
+    -webkit-box-shadow: 0 1px 0 0 none !important;
+    box-shadow: 0 1px 0 0 white !important;
+}
+
+/* Style input fields during autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+    /* Transition background color over a long duration */
+}
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: none !important;
+    color: fieldtext !important;
+}
+
 
 .fym-heading {
     color: #eceff1;

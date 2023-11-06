@@ -6,7 +6,7 @@ export default {
     title: 'Dialog',
     component: Dialog,
     argTypes: {
-        title: { control: 'radio', options: ['Add Movie', 'Edit Movie'] },
+        title: { control: 'radio', options: ['Add Movie', 'Edit Movie', 'Delete Movie'] },
     },
     args: {
         title: 'Add Movie',
@@ -46,7 +46,7 @@ export const Default = (args) => {
             <button className="btn waves-effect waves-orange yellow black-text btn-large" onClick={() => setDialogOpen(true)}>{args.title}</button>
             {isDialogOpen && (
                 <Dialog title={args.title} onClose={handleDialogClose}>
-                    <MovieForm initialMovie={args.title === "Add Movie" ? null : args.initialMovie} onSubmit={null} />
+                    <MovieForm initialMovie={args.title === "Add Movie" ? null : args.initialMovie} deleteMovie={args.title === "Delete Movie"} onSubmit={null} />
                 </Dialog>
             )}
         </div>
