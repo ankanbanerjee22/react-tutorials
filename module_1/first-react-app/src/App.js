@@ -8,8 +8,13 @@ import MovieMetadata from './movie-metadata.json';
 import MovieDetails from './components/MovieDetails.js';
 import Dialog from './components/Dialog.js';
 import MovieForm from './components/MovieForm.js';
+import MovieDatabaseService from './services/MovieDatabaseService.js';
 
 function App() {
+
+
+  const [movies, setMovies] = useState([]);
+
 
   useEffect(() => {
     const collapsibleElems = document.querySelectorAll('.collapsible');
@@ -58,6 +63,12 @@ function App() {
     setIsDialogOpen(true);
   };
 
+  const handleDeleteMovie = (movie) => {
+    // TODO
+    // logic for handle delete movie
+  };
+
+
   const handleAddMovie = (movie) => {
     // Handle adding a new movie (submit data to API, update state, etc.)
     setIsDialogOpen(false);
@@ -69,6 +80,24 @@ function App() {
   };
 
   const [selectedOption, setSelectedOption] = useState("Add Movie");
+
+  async function submitSearch(query) {
+    try {
+      const data = await MovieDatabaseService.searchMovies(query);
+      console.log('reciving data: ', data);
+      if (data.data && data.data.length > 0) {
+        setMovies(data.data); // Set the movies state using response data
+      } else {
+        setMovies([]); // Set movies state to empty array if no data is received
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    console.log('movies: ', movies);
+    console.log(MovieMetadata);
+  }
+
+
 
   return (
     <>
@@ -148,12 +177,6 @@ function App() {
               </button>
             )}
 
-            {selectedOption === "Delete Movie" && (
-              <button className="btn waves-effect waves-orange yellow black-text btn-large" onClick={() => setIsDialogOpen(true)}>
-                Delete Movie
-              </button>
-            )}
-
             {isDialogOpen && selectedOption === "Add Movie" && (
               <Dialog title="Add Movie" onClose={handleCloseDialog}>
                 <MovieForm initialMovie={null} onSubmit={handleAddMovie} />
@@ -174,7 +197,17 @@ function App() {
           </span></div>
         </li>
       </ul>
+      <div>
+        {Array.isArray(movies) && movies.length > 0 && movies.data.map((movie, index) => (
+          <div className="row" key={index}>
+            <p>Movie Name: {movie.movieName}</p>
+            <p>Release Year: {movie.releaseYear}</p>
+            {/* ... other properties of the movie object */}
+          </div>
+        ))}
+      </div>
     </>
+
 
   );
 
