@@ -74,6 +74,11 @@ function App() {
     setIsDialogOpen(false);
   };
 
+  const handleDeleteMovie = (movie) => {
+    // TODO
+    // logic for handle delete movie
+  };
+
   const handleCloseDialog = () => {
     setIsDialogOpen(false);
     setEditedMovie(null);
@@ -191,7 +196,7 @@ function App() {
 
             {isDialogOpen && selectedOption === "Delete Movie" && (
               <Dialog title="Delete Movie" onClose={handleCloseDialog}>
-                <MovieForm initialMovie={MovieMetadata[2]} deleteMovie={true} onSubmit={handleEditMovie} />
+                <MovieForm initialMovie={MovieMetadata[2]} deleteMovie={true} onSubmit={handleDeleteMovie} />
               </Dialog>
             )}
           </span></div>
