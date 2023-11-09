@@ -7,10 +7,10 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
 
   // TODO release year needs to be handled properly , now only taking year from movie metadata json file, 
   // changes will be requried in Movie component as well for release year badge 
-  const defaultYear = formData.releaseYear; // Assuming formData.releaseYear contains the year as a string
-  const formattedReleaseYear = `${defaultYear}-01-01`; // Set default day and month to '01'
+  const formattedReleaseYear = formData.release_date; 
 
   const [selectedGenres, setSelectedGenres] = useState(formData && formData.genres ? formData.genres.map(option => option) : []);
+
 
   const handleGenreChange = (event) => {
     const selectedOptions = Array.from(event.target.selectedOptions, (option) => option.value);
@@ -18,14 +18,25 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
     setSelectedGenres(selectedOptions);
   };
 
-  const genres = [
-    { value: 'all', label: 'All' },
-    { value: 'action', label: 'Action' },
-    { value: 'adventure', label: 'Adventure' },
-    { value: 'comedy', label: 'Comedy' },
-    { value: 'drama', label: 'Drama' },
-    { value: 'sci-fi', label: 'Sci-Fi' }
+  let genres = [
+    { value: 'All', label: 'All' },
+    { value: 'Documentary', label: 'Documentary' },
+    { value: 'Comedy', label: 'Comedy' },
+    { value: 'Horror', label: 'Horror' },
+    { value: 'Crime', label: 'Crime' }
   ];
+
+  const uniqueSelectedGenres = selectedGenres.filter(genre => !genres.some(existingGenre => existingGenre.value === genre));
+
+  const additionalGenres = uniqueSelectedGenres.map(genre => ({
+    value: genre,
+    label: genre
+  }));
+
+  genres = [...genres, ...additionalGenres]
+  
+
+
 
   useEffect(() => {
     window.M.AutoInit();
@@ -50,7 +61,7 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
           </div>
           <div className="row">
             <div className="col s6 m7 offset-s3 offset-m3 right-align">
-              <button className="btn-large waves-effect waves-green red custom-btn" type="submit">
+              <button className="btn-large waves-effect waves-light red custom-btn" type="submit">
                 Confirm
               </button>
             </div>
@@ -72,7 +83,7 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
                 className="input-style-form"
                 name="title"
                 placeholder="Film title here"
-                defaultValue={formData.movieName}
+                defaultValue={formData.title}
                 required />
             </div>
           </div>
@@ -100,7 +111,7 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
                 className="input-style-form"
                 name="movieUrl"
                 placeholder="Poster URL here"
-                defaultValue={formData.imageUrl}
+                defaultValue={formData.poster_path}
                 required />
             </div>
           </div>
@@ -113,7 +124,7 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
                 className="input-style-form"
                 name="rating"
                 placeholder="Movie rating"
-                defaultValue={formData.rating}
+                defaultValue={formData.vote_average}
                 required />
             </div>
           </div>
@@ -138,7 +149,7 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
                 className="input-style-form"
                 name="runtime"
                 placeholder="Movie runtime"
-                defaultValue={formData.duration} required />
+                defaultValue={formData.runtime} required />
             </div>
           </div>
         </div>
@@ -151,17 +162,17 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
                 className="materialize-textarea"
                 name="overview"
                 placeholder="Movie overview"
-                defaultValue={formData.description}
+                defaultValue={formData.overview}
                 required />
             </div>
           </div>
         </div>
         <div className="row">
           <div className="col s12 right-align">
-            <button className="btn-large waves-effect waves-green transparent custom-btn" type="reset">
+            <button className="btn-large waves-effect waves-light transparent custom-btn" type="reset">
               Reset
             </button>
-            <button className="btn-large waves-effect waves-green red custom-btn" type="submit">
+            <button className="btn-large waves-effect waves-light red custom-btn" type="submit">
               Confirm
             </button>
           </div>

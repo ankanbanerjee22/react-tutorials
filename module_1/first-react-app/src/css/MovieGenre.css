@@ -3,7 +3,17 @@
 .movie-genre-tabs {
     height: 50px !important;
     line-height: 20px !important;
-    width: 60% !important; 
+    width: 100% !important; 
     background-color: #3e2723 !important;
+    align-items: left !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+    justify-content: flex-start !important;
+    /* margin-top: 13px !important; */
+    font-weight: 500 !important;
+  }
+
+
+  .left-aligned-tabs {
+    justify-content: flex-start !important; 
   }
   

@@ -17,37 +17,41 @@ import '../css/MovieGenre.css';
  */
 
 const MovieGenre = ({ genres, selectedGenre, onSelect }) => {
-  // Initialize tabs 
   const tabsRef = useRef(null);
+
 
   useEffect(() => {
     const instance = window.M.Tabs.init(tabsRef.current);
+    // var instance = window.M.Tabs.getInstance(tabsRef.current);
+    // if(instance){
+    //   instance.select(selectedGenre);
+    //   instance.updateTabIndicator();
+    // }
 
-  }, []);
+  }, [selectedGenre]);
+
+
 
   return (
     <>
-      <div className="genre-list">
-        <div className="row">
-          <div className="col s12">
-            <ul className="tabs movie-genre-tabs" ref={tabsRef}>
-              {genres.map((genre) => {
-                const genreLink = `#${genre}`;
-                const isActive = genre === selectedGenre;
-                const activeClass = isActive ? 'active' : '';
 
-                return (
-                  <li key={genre} className="tab">
-                    <a key={genre} href={genreLink} className={activeClass} onClick={() => onSelect(genre)}>
-                      {genre}
-                    </a>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-        </div>
-      </div>
+      <ul className="tabs movie-genre-tabs z-depth-1" ref={tabsRef}>
+        {genres.map((genre) => {
+          const genreLink = `#${genre}`;
+          const isActive = genre === selectedGenre;
+          const activeClass = isActive ? 'active' : '';
+
+          return (
+            <li key={genre} className="tab">
+              <a key={genre} href={genreLink} className={activeClass} onClick={() => onSelect(genre)}>
+                {genre}
+              </a>
+            </li>
+          )
+        })}
+      </ul>
+
+
     </>
   );
 

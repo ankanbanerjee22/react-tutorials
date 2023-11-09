@@ -16,19 +16,22 @@ const Template = (args) => <Movie {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    "id": 354912,
-    "movieName": "Coco",
-    "tagline": "The celebration of a lifetime",
-    "rating": 7.8,
-    "vote_count": 3619,
-    "releaseYear": "2017",
-    "imageUrl": "https://image.tmdb.org/t/p/w500/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg",
-    "description": "Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history.",
+
+  movie: {
+    "id": 338970,
+    "title": "Tomb Raider",
+    "tagline": "Her legend begins",
+    "vote_average": 6.2,
+    "vote_count": 817,
+    "release_date": "2018-01-10",
+    "poster_path": "https://image.tmdb.org/t/p/w500/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg",
+    "overview": "Lara Croft, the fiercely independent daughter of a missing adventurer, must push herself beyond her limits when she finds herself on the island where her father disappeared.",
+    "budget": 94000000,
+    "revenue": 126025000,
     "genres": [
-      "Adventure",
-      "Comedy",
-      "Family",
-      "Animation"
+      "Action",
+      "Adventure"
     ],
-    "duration": "1 hour 45 mins"
-  };
+    "runtime": "140"
+  }
+};

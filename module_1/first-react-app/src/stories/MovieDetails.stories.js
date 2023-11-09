@@ -26,6 +26,6 @@ export default {
         "Family",
         "Animation"
     ],
-    "duration": "1 hour 45 mins",
+    "duration": 117,
     onClose: () => { }, // Mock onClose function
   };

@@ -12,13 +12,13 @@ export default {
         title: 'Add Movie',
         initialMovie: {
             "id": 268896,
-            "movieName": "Pacific Rim: Uprising",
+            "title": "Pacific Rim: Uprising",
             "tagline": "Rise Up",
-            "rating": 6,
+            "vote_average": 6,
             "vote_count": 318,
-            "releaseYear": "2018",
-            "imageUrl": "https://image.tmdb.org/t/p/w500/v5HlmJK9bdeHxN2QhaFP1ivjX3U.jpg",
-            "description": "It has been ten years since The Battle of the Breach and the oceans are still, but restless. Vindicated by the victory at the Breach, the Jaeger program has evolved into the most powerful global defense force in human history. The PPDC now calls upon the best and brightest to rise up and become the next generation of heroes when the Kaiju threat returns.",
+            "release_date": "2018-02-01",
+            "poster_path": "https://image.tmdb.org/t/p/w500/v5HlmJK9bdeHxN2QhaFP1ivjX3U.jpg",
+            "overview": "It has been ten years since The Battle of the Breach and the oceans are still, but restless. Vindicated by the victory at the Breach, the Jaeger program has evolved into the most powerful global defense force in human history. The PPDC now calls upon the best and brightest to rise up and become the next generation of heroes when the Kaiju threat returns.",
             "budget": 150000000,
             "revenue": 150613316,
             "genres": [
@@ -27,7 +27,7 @@ export default {
               "science Fiction",
               "adventure"
             ],
-            "duration": "1 hour 58 mins"
+            "runtime": "142"
           }
     },
 };

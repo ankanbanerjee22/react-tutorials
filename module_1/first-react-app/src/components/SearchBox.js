@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import '../css/SearchBox.css'
 import { FIND_YOUR_MOVIE } from '../literals';
-
+import Dialog from './Dialog';
+import MovieForm from './MovieForm';
 /**
  * Requirements
  * --------------
@@ -21,20 +22,31 @@ const SearchBox = ({ initialQuery, onSearch }) => {
     // handler for input change
     const handleInputChange = (event) => {
         setQuery(event.target.value);
-        //alert("Input chaning");
     };
 
     // handler on hiting search button
     const handleSearch = () => {
+        //setQuery(query);
         onSearch(query);
     };
 
     // handler for Enter press, same behaviour as hitting search button
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
+            setQuery(query);
             onSearch(query);
         }
     };
+
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const handleCloseDialog = () => {
+        setIsDialogOpen(false);
+        //setEditedMovie(null);
+      };
+      const handleAddMovie = (movie) => {
+        setIsDialogOpen(false);
+      };
+    
 
     return (
         <>
@@ -42,33 +54,46 @@ const SearchBox = ({ initialQuery, onSearch }) => {
                 <div className="col s12 m12">
                     <div className="card medium card-style">
                         <div className="card-content overlay-style">
-                            <div className="row center-align">
+                            <div className="row right-align">
+                                <div className="col s12">
+                                    <button className="btn-large waves-effect waves-light add-movie-btn" onClick={() => setIsDialogOpen(true)}>
+                                    + Add Movie
+                                    </button>
+
+                                    {isDialogOpen && (
+                                        <Dialog title="Add Movie" onClose={handleCloseDialog}>
+                                            <MovieForm initialMovie={null} onSubmit={handleAddMovie} />
+                                        </Dialog>
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="row">
                                 <div className="col s12 center-align">
                                     <h3 className="fym-heading">{FIND_YOUR_MOVIE}</h3>
                                 </div>
-                                <div className="col s9 offset-s3 right-align">
+                                <div className="col s9 offset-s3 center-align">
                                     <div className="col s6 input-field input-style">
                                         <input
                                             id="search-input"
                                             type="text"
-                                            className="white-text"
+                                            className="white-text font-large"
                                             placeholder='What do you want to watch ?'
-                                            value={query}
+                                            defaultValue={query}
                                             onChange={handleInputChange}
                                             onKeyPress={handleKeyPress}
                                         />
                                         <label htmlFor="search-input"></label>
                                     </div>
-                                    <div className="col s1 right-align">
-                                        <button className="btn-large waves-effect waves-green red custom-btn"
+                                    <div className="col s6 left-align">
+                                        <button className="btn-large waves-effect waves-light red custom-btn"
                                             onClick={handleSearch}
                                         >
                                             Search
                                         </button>
                                     </div>
                                 </div>
-                                <div className="col s2 left-align search-movie-button">
-                                </div>
+                                <div className="col s6 left-align search-movie-button"/>
                             </div>
                         </div>
                     </div>

@@ -28,3 +28,14 @@
     font-weight: 500 !important;
     font-family: "Montserrat", sans-serif !important;
 }
+
+
+.card-menu-dropdown {
+    /* position: relative; */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card-image:hover .card-menu-dropdown {
+    opacity: .9;
+}
