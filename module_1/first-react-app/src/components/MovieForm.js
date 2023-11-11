@@ -8,9 +8,7 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
   // TODO release year needs to be handled properly , now only taking year from movie metadata json file, 
   // changes will be requried in Movie component as well for release year badge 
   const formattedReleaseYear = formData.release_date; 
-
   const [selectedGenres, setSelectedGenres] = useState(formData && formData.genres ? formData.genres.map(option => option) : []);
-
 
   const handleGenreChange = (event) => {
     const selectedOptions = Array.from(event.target.selectedOptions, (option) => option.value);
@@ -35,9 +33,6 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
 
   genres = [...genres, ...additionalGenres]
   
-
-
-
   useEffect(() => {
     window.M.AutoInit();
   }, []);

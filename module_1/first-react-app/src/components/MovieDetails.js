@@ -5,13 +5,10 @@ import {ConvertMinutesToHoursAndMinutes} from '../services/UtilityService'
 
 const MovieDetails = ({ imageUrl, movieName, releaseYear, rating, duration, description, genres, onClose }) => {
 
-    console.log('rating', rating);
-    const trimmedDescription =  description ; //description.length <= 400 ? description : description.slice(0, 400) + ".......";
-
     const displayedGenre = genres ? genres.flat().join(", ") : NOT_APPLICABLE;
     const displayedMovieName = movieName ? movieName : UNKNOWN_MOVIE;
     const displayedReleaseYear = releaseYear ? releaseYear : NOT_APPLICABLE;
-    const displayedDescription = description ? description : NOT_APPLICABLE
+    const displayedDescription = description ? ( description.length <= 400 ? description : description.slice(0, 400) + ".......") : NOT_APPLICABLE
     const displayedDuration = duration ? ConvertMinutesToHoursAndMinutes(duration): NOT_APPLICABLE;
 
     return (

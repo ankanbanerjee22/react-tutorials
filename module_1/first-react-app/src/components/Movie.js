@@ -7,17 +7,12 @@ import  '../css/Movie.css';
 
 const Movie = ({movie , onMovieClick }) => {
 
-    // imageUrl, movieName, releaseYear, genres, 
     const displayedGenre = movie.genres ? movie.genres.flat().join(", ") : NOT_APPLICABLE;
     const displayedMovieName = movie.title ? movie.title : UNKNOWN_MOVIE;
     const displayedReleaseYear = movie.release_date ? movie.release_date.substring(0, 4) : NOT_APPLICABLE;
 
-
     const [selectedOption, setSelectedOption] = useState(null);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-
-
 
     const handleOptionSelect = (event, option) => {
         setSelectedOption(option);
@@ -55,7 +50,6 @@ const Movie = ({movie , onMovieClick }) => {
         }
     }
 
-
     useEffect(() => {
         // Initialize the dropdown menu
         const dropdownElems = document.querySelectorAll('.dropdown-trigger');
@@ -65,13 +59,11 @@ const Movie = ({movie , onMovieClick }) => {
         });
     }, []);
 
-
     const handleTileOnClick = (event) => {
         if(event.target && event.target.id !== 'menu-id'){
             onMovieClick();
         }
     }
-
 
     return (
         <>
@@ -106,9 +98,8 @@ const Movie = ({movie , onMovieClick }) => {
                 </div>
             </div>
             {selectedOption && renderSelectedComponent()}
-
         </>
-    )
+    );
 
 }
 

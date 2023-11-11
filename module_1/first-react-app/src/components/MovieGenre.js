@@ -19,18 +19,9 @@ import '../css/MovieGenre.css';
 const MovieGenre = ({ genres, selectedGenre, onSelect }) => {
   const tabsRef = useRef(null);
 
-
   useEffect(() => {
-    const instance = window.M.Tabs.init(tabsRef.current);
-    // var instance = window.M.Tabs.getInstance(tabsRef.current);
-    // if(instance){
-    //   instance.select(selectedGenre);
-    //   instance.updateTabIndicator();
-    // }
-
+     const instance = window.M.Tabs.init(tabsRef.current);
   }, [selectedGenre]);
-
-
 
   return (
     <>
