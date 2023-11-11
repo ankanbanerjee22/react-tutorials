@@ -51,7 +51,7 @@ const MovieDetails = ({ imageUrl, movieName, releaseYear, rating, duration, desc
                                     </div>
                                 </div>
                                 <div> <StarRating rating={rating} /></div>
-                                <p className="grey-text" ><strong>{displayedGenre}</strong></p>
+                                <p className="green-text" ><span><strong>{displayedGenre}</strong></span></p>
                                 <div className="movie-description-text"><strong>Description: </strong>{displayedDescription}</div>
                             </div>
                         </div>
