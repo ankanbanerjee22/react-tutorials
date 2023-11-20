@@ -7,10 +7,13 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<NetflixRoulette/>} />
-        <Route exact path="/:movieId" element={<NetflixRoulette/>} />
-        <Route exact path="*" element = {<PageNotFound/>} />
+        <Route exact path="/" element={<NetflixRoulette />} />
+        <Route exact path="/:movieId" element={<NetflixRoulette />} />
+        <Route exact path="*" element={<PageNotFound />} />
       </Routes>
+      <footer>
+        <span><b>netflix</b>roulette</span>
+      </footer>
     </Router>
   );
 

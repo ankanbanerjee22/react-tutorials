@@ -7,7 +7,7 @@ import Movie from './Movie.js';
 import MovieDetails from './MovieDetails.js';
 import MovieDatabaseService from '../services/MovieDatabaseService.js';
 import { SEARCH_PARAM_GENRE_KEY, SEARCH_PARAM_SORTBY_KEY, SEARCH_PARAM_QUERY_KEY, DEFAULT_PAGE_SIZE } from '../literals.js';
-import  '../css/NetflixRoulette.css';
+import '../css/NetflixRoulette.css';
 
 export function NetflixRoulette() {
 
@@ -53,7 +53,7 @@ export function NetflixRoulette() {
 
   // hook to load next page of movies
   useEffect(() => {
-    offset && loadMoreMovies(selectedSearchQuery, sortBy, selectedGenre,DEFAULT_PAGE_SIZE,offset);
+    offset && loadMoreMovies(selectedSearchQuery, sortBy, selectedGenre, DEFAULT_PAGE_SIZE, offset);
   }, [offset]);
 
   // hook to handle selected movie from movie list
@@ -133,20 +133,20 @@ export function NetflixRoulette() {
    * @param {*} genreFilter
    * @param {*} limit
    */
-    async function loadMoreMovies(searchQuery, sortCriteria, genreFilter, limit, offset) {
-      try {
-        const { data, error } = await MovieDatabaseService.loadMovies(searchQuery, sortCriteria, genreFilter, limit, offset);
-  
-        if (error) {
-          // Handle error, show an error message, etc.
-        } else {
-          setMovies([...movies, ...data.data]);
-        }
-      } catch (error) {
-        console.error('Error:', error);
-  
+  async function loadMoreMovies(searchQuery, sortCriteria, genreFilter, limit, offset) {
+    try {
+      const { data, error } = await MovieDatabaseService.loadMovies(searchQuery, sortCriteria, genreFilter, limit, offset);
+
+      if (error) {
+        // Handle error, show an error message, etc.
+      } else {
+        setMovies([...movies, ...data.data]);
       }
+    } catch (error) {
+      console.error('Error:', error);
+
     }
+  }
 
   /**
    * Method to fetch a movie by its id from movie database and set it as the selected movie from list of movies
@@ -217,7 +217,7 @@ export function NetflixRoulette() {
       {resultCount > DEFAULT_PAGE_SIZE && (
         <div className="row">
           <div className="load-btn-wrapper col s12 center-align">
-            <button className="btn-large waves-effect waves-light transparent custom-btn" onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleLoadMoreMovie(e); e.preventDefault(); e.stopPropagation(); }}>
+            <button className="btn-large waves-effect waves-light transparent custom-btn" onClick={(e) => handleLoadMoreMovie(e)}>
               Load More
             </button>
           </div>
