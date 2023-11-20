@@ -81,7 +81,6 @@ export function NetflixRoulette() {
     setSelectedGenre('All');
     setPagesize(DEFAULT_PAGE_SIZE);
     updateSearchParams(searchParams, SEARCH_PARAM_QUERY_KEY, query);
-    updateSearchParams(searchParams, SEARCH_PARAM_GENRE_KEY, 'All');
   };
 
   const handleTileClick = (movie) => {
