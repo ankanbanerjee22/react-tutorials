@@ -53,3 +53,7 @@ body {
     background-color: rgba(246, 178, 182, 0) !important;
     color: white !important;
 }
+
+.result-count-wrapper {
+    margin-bottom: 10px ;
+}

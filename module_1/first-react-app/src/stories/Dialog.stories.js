@@ -37,7 +37,6 @@ export const Default = (args) => {
     const [isDialogOpen, setDialogOpen] = useState(false);
 
     const handleDialogClose = () => {
-        console.log('Dialog closed');
         setDialogOpen(false);
     };
 

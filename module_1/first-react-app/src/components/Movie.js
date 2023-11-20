@@ -69,7 +69,7 @@ const Movie = ({movie , onMovieClick }) => {
         <>
             <div className="row" >
                 <div className="col s12 movie-list">
-                    <div className="card large" onClick={(e) => handleTileOnClick(e)}  >
+                    <div className="card movie-card" onClick={(e) => handleTileOnClick(e)}  >
                         <div className="card-image movie-tile" style={{ position: 'relative', overflow: 'hidden' }}>
                             <div className="movie-menu  click-to-toggle">
                                 <a href="#" className='btn-floating halfway-fab dropdown-trigger btn grey darken-3 card-menu-dropdown'

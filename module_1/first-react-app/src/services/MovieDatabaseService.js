@@ -8,8 +8,16 @@ const MovieDatabaseService = {
       const encodedGenreFilter = genreFilter !== 'All' ? encodeURIComponent(genreFilter): encodeURIComponent('') ;
       const response = await fetch(`${API_URL}?search=${encodedsearchQuery}&searchBy=title&sortBy=${encodedsortCriteria}&filter=${encodedGenreFilter}&sortOrder=desc&limit=${limit}`);  
       const data     = await response.json();
-      console.log('url',`${API_URL}?search=${encodedsearchQuery}&searchBy=title&sortBy=${encodedsortCriteria}&filter=${encodedGenreFilter}&sortOrder=desc&limit=${limit}` )
-      console.log('loaded.data', data);
+      return { data };
+    }
+    catch (error) {
+      return { error: error.response };
+    }
+  },
+  loadMovieById: async (movieId) => {
+    try {
+      const response = await fetch(`${API_URL}/${movieId}`);  
+      const data     = await response.json();
       return { data };
     }
     catch (error) {
