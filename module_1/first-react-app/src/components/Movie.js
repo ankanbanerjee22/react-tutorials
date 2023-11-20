@@ -80,7 +80,7 @@ const Movie = ({movie , onMovieClick }) => {
                                     <li><a href="#" onClick={(event) => handleOptionSelect(event, 'Delete Movie')}>Delete</a></li>
                                 </ul>
                             </div>
-                            <img src={movie.poster_path}
+                            <img src={movie.poster_path || '/images/image_not_available.svg.png'}
                                 height="100%"
                                 alt={displayedMovieName}
                                 onError={(e) => {

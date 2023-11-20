@@ -7,6 +7,7 @@ import Movie from './Movie.js';
 import MovieDetails from './MovieDetails.js';
 import MovieDatabaseService from '../services/MovieDatabaseService.js';
 import { SEARCH_PARAM_GENRE_KEY, SEARCH_PARAM_SORTBY_KEY, SEARCH_PARAM_QUERY_KEY, DEFAULT_PAGE_SIZE } from '../literals.js';
+import  '../css/NetflixRoulette.css';
 
 export function NetflixRoulette() {
 
@@ -17,6 +18,7 @@ export function NetflixRoulette() {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [selectedSearchQuery, setSelectedSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('release_date');
+  const [offset, setOffset] = useState(0);
   const [resultCount, setResultCount] = useState(0);
 
   const movieDetailRef = useRef(null);
@@ -30,27 +32,33 @@ export function NetflixRoulette() {
     const queryParam = searchParams.get(SEARCH_PARAM_QUERY_KEY);
     const genreParam = searchParams.get(SEARCH_PARAM_GENRE_KEY);
     const sortByParam = searchParams.get(SEARCH_PARAM_SORTBY_KEY);
-  
+
     if (queryParam) {
       setSelectedSearchQuery(queryParam);
     }
-  
+
     if (genreParam) {
       setSelectedGenre(genreParam);
     }
-  
+
     if (sortByParam) {
       setSortBy(sortByParam);
     }
   }, [searchParams]);
 
+  // hook to load movies based on different criteria
   useEffect(() => {
     setMovies(loadMovies(selectedSearchQuery, sortBy, selectedGenre, pagesize));
-  }, [pagesize, selectedGenre, selectedSearchQuery, sortBy]);
+  }, [selectedGenre, selectedSearchQuery, sortBy, pagesize]);
+
+  // hook to load next page of movies
+  useEffect(() => {
+    offset && loadMoreMovies(selectedSearchQuery, sortBy, selectedGenre,DEFAULT_PAGE_SIZE,offset);
+  }, [offset]);
 
   // hook to handle selected movie from movie list
   useEffect(() => {
-    if(movieId){
+    if (movieId) {
       loaSelectedMovieById(movieId);
     }
   }, [movieId]);
@@ -79,7 +87,6 @@ export function NetflixRoulette() {
   const handleTileClick = (movie) => {
     setSelectedMovie(movie);
     movieDetailRef.current.scrollIntoView({ behavior: 'smooth' });
-    console.log('selected movie id is : ', movie.id);
     navigate(`/${movie.id}?${searchParams.toString()}`);
   };
 
@@ -120,6 +127,28 @@ export function NetflixRoulette() {
   }
 
   /**
+   * Method to load next page of movies 
+   * @param {*} searchQuery
+   * @param {*} sortCriteria
+   * @param {*} genreFilter
+   * @param {*} limit
+   */
+    async function loadMoreMovies(searchQuery, sortCriteria, genreFilter, limit, offset) {
+      try {
+        const { data, error } = await MovieDatabaseService.loadMovies(searchQuery, sortCriteria, genreFilter, limit, offset);
+  
+        if (error) {
+          // Handle error, show an error message, etc.
+        } else {
+          setMovies([...movies, ...data.data]);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+  
+      }
+    }
+
+  /**
    * Method to fetch a movie by its id from movie database and set it as the selected movie from list of movies
    * @param {*} movieId : id of the that we want to fetch
    */
@@ -139,8 +168,10 @@ export function NetflixRoulette() {
 
   const handleLoadMoreMovie = (event) => {
     event.preventDefault();
-    let updatePagesize = pagesize + 10;
-    setPagesize(updatePagesize);
+    //const updatePagesize = pagesize + 10;
+    //setPagesize(updatePagesize);
+    const updatedOffset = offset + 10;
+    setOffset(updatedOffset);
   };
 
   return (
@@ -183,23 +214,17 @@ export function NetflixRoulette() {
         })}
       </div>
 
-      {resultCount > DEFAULT_PAGE_SIZE && (<div className="row">
-        <div className="col s12 center-align">
-          <button className="btn-large waves-effect waves-light transparent custom-btn" onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleLoadMoreMovie(e); e.preventDefault(); e.stopPropagation(); }}>
-            Load More
-          </button>
-        </div>
-      </div>)}
-
+      {resultCount > DEFAULT_PAGE_SIZE && (
+        <div className="row">
+          <div className="load-btn-wrapper col s12 center-align">
+            <button className="btn-large waves-effect waves-light transparent custom-btn" onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleLoadMoreMovie(e); e.preventDefault(); e.stopPropagation(); }}>
+              Load More
+            </button>
+          </div>
+        </div>)}
     </>
   );
 
 }
 
-
-
-
-
 export default NetflixRoulette;
-
-

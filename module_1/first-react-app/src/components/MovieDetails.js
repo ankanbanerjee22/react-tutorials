@@ -17,7 +17,7 @@ const MovieDetails = ({ selectedMovie, onClose }) => {
             <div className="row">
                 <div className="col s4 m4 xl3">
                     <div className="card horizontal medium black ">
-                        <img src={poster_path}
+                        <img src={poster_path || '/images/image_not_available.svg.png'}
                                 height="100%"
                                 alt={title}
                                 className="movie-image-style"

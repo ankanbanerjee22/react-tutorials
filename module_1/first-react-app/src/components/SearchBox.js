@@ -20,7 +20,6 @@ const SearchBox = ({ initialQuery = '', onSearch }) => {
     const [query, setQuery] = useState(initialQuery);
 
     useEffect(() => {
-        console.log('Initial Query:', initialQuery); // Log initialQuery value
         setQuery(initialQuery || '');
     }, [initialQuery]);
 
