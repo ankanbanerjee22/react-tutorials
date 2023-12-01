@@ -26,5 +26,5 @@
 
 .bold-text {
     font-weight: 500 !important;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont;
+    font-family: "Montserrat", sans-serif !important;
 }

@@ -1,0 +1,204 @@
+.bordered-form {
+  color: #fff;
+}
+
+.bordered-form .input-field label {
+  color: rgb(207, 206, 206);
+}
+
+.bordered-form .input-field input[type="text"]:focus,
+.bordered-form .input-field input[type="date"]:focus,
+.bordered-form .input-field input[type="url"]:focus,
+.bordered-form .input-field input[type="number"]:focus,
+.bordered-form .input-field textarea:focus {
+  border-color: #fcfbfd !important;
+  color: white;
+}
+
+.input-style-form-label {
+  width: 100%;
+  font-size: 1.2em;
+  font-family: "Montserrat", sans-serif !important;
+  color: #f65261;
+}
+
+.input-style-form {
+  font-size: 1rem;
+  background-color: rgba(252, 253, 253, 0.107);
+  font-family: "Montserrat", sans-serif !important;
+  border: none;
+  border-radius: 0.3rem;
+  color: #fff !important;
+  width: calc(100% - 20px);
+  text-align: left;
+  padding: 0px 10px;
+  margin-top: 10px;
+}
+
+
+
+.input-field input.select-dropdown {
+  width: calc(100% - 25px) !important;
+}
+
+
+.input-style-form:focus {
+  background-color: rgba(252, 253, 253, 0.2);
+  color: #fff !important;
+}
+
+.custom-btn {
+  border: 1px solid #f32121 !important;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif !important;
+  min-width: 10em !important;
+  margin: 1px 20px !important;
+  text-align: center;
+}
+
+.custom-btn:hover {
+  background-color: #f65261 !important;
+  color: #fff;
+}
+
+.form-btn-grid {
+  margin: 5px;
+}
+
+.form-btn-grid .col {
+  padding: 0;
+}
+
+.materialize-textarea {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: 'Montserrat' !important;
+}
+
+.textarea-container {
+  position: relative;
+}
+
+.materialize-textarea {
+  color: white;
+  resize: none;
+  overflow: hidden;
+  min-height: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1.6 !important;
+  border: 1px solid #ccc;
+  padding: 10px;
+  transition: min-height 0.5s ease !important;
+
+}
+
+.materialize-textarea:focus {
+  min-height: 200px;
+}
+
+.white-text {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+/*
+* 
+Custom CSS for overriding materilize chips color and style
+* 
+*/
+.chips .chip {
+  background-color: transparent;
+  border-radius: 5px;
+  color: #fff;
+  border: 1px solid #f65261 !important;
+  padding: none !important;
+  margin: none !important;
+}
+
+.chips {
+  font-size: 1rem !important;
+  border-radius: 0.3rem !important;
+  padding: 5px 10px !important;
+  margin-top: 10px !important;
+  border-bottom: none !important;
+}
+
+.chips.focus {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.chips .chip:hover {
+  background-color: #f65261;
+}
+
+.chips input,
+.chips .input {
+  caret-color: white;
+  color: white !important;
+  border-bottom: 1px solid grey !important;
+  padding-top: 10px !important;
+}
+
+.chips input:focus {
+  caret-color: white;
+  /* Change caret color when focused */
+  border-bottom: 1px solid white !important;
+}
+
+.chips .input:focus {
+  box-shadow: none !important;
+}
+
+/*
+*
+materlize select overrides
+*
+*/
+.select-wrapper input.select-dropdown {
+  font-size: 1rem;
+  background-color: rgba(252, 253, 253, 0.107);
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  border-radius: 0.3rem;
+  color: #fff;
+  width: calc(100% - 60px);
+  text-align: left;
+  padding: 3px 0px !important;
+  height: 3rem;
+  line-height: 3rem;
+  border-bottom: 1px solid #9e9e9e !important;
+}
+
+.select-wrapper .caret {
+  fill: red !important;
+  width: 30px !important;
+}
+
+.dropdown-content.select-dropdown {
+  transform-origin: top left !important;
+  background-color: rgb(67, 67, 67);
+  font-weight: bold;
+}
+
+[type="checkbox"]:checked+span:not(.lever):before {
+  border-right: 2px solid red !important;
+  border-bottom: 2px solid red !important;
+}
+
+
+.modal.modal-fixed-footer {
+  min-width: 60vw !important; 
+  min-height: 80vh; 
+}
+

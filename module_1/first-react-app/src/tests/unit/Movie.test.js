@@ -21,7 +21,7 @@ import Movie from '../../components/Movie';
 
   test('calls onTileClick when clicked', () => {
     const mockOnTileClick = jest.fn();
-    const { getByText } = render(<Movie {...mockMovie} onTileClick={mockOnTileClick} />);
+    const { getByText } = render(<Movie {...mockMovie} onClick={mockOnTileClick} />);
     fireEvent.click(getByText('Test Movie'));
     expect(mockOnTileClick).toHaveBeenCalledTimes(1);
   });

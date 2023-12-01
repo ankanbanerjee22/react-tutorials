@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../css/SearchBox.css'
-import {FIND_YOUR_MOVIE} from '../literals';
+import { FIND_YOUR_MOVIE } from '../literals';
 
 /**
  * Requirements
@@ -46,27 +46,28 @@ const SearchBox = ({ initialQuery, onSearch }) => {
                                 <div className="col s12 center-align">
                                     <h3 className="fym-heading">{FIND_YOUR_MOVIE}</h3>
                                 </div>
-                                <div className="col s6 offset-s3 right-align">
-                                    <div className="input-field input-style">
+                                <div className="col s9 offset-s3 right-align">
+                                    <div className="col s6 input-field input-style">
                                         <input
                                             id="search-input"
                                             type="text"
                                             className="white-text"
-                                            placeholder='  What do you want to watch ?'
+                                            placeholder='What do you want to watch ?'
                                             value={query}
                                             onChange={handleInputChange}
                                             onKeyPress={handleKeyPress}
                                         />
                                         <label htmlFor="search-input"></label>
                                     </div>
+                                    <div className="col s1 right-align">
+                                        <button className="btn-large waves-effect waves-green red custom-btn"
+                                            onClick={handleSearch}
+                                        >
+                                            Search
+                                        </button>
+                                    </div>
                                 </div>
                                 <div className="col s2 left-align search-movie-button">
-                                    <button
-                                        className="waves-effect waves-light red btn-small"
-                                        onClick={handleSearch}
-                                    >
-                                        Search
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -77,6 +78,5 @@ const SearchBox = ({ initialQuery, onSearch }) => {
     );
 
 };
-
 
 export default SearchBox;

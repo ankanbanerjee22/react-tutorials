@@ -4,8 +4,10 @@ import MovieGenre from './components/MovieGenre.js';
 import CounterLegacy from './components/CounterLegacy.js';
 import MovieSortBy from './components/MovieSortBy.js';
 import Movie from './components/Movie.js';
-import MovieMetadata from './moviemetadata.json';
+import MovieMetadata from './movie-metadata.json';
 import MovieDetails from './components/MovieDetails.js';
+import Dialog from './components/Dialog.js';
+import MovieForm from './components/MovieForm.js';
 
 function App() {
 
@@ -48,6 +50,31 @@ function App() {
     alert("selected value is: " + value);
   };
 
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [editedMovie, setEditedMovie] = useState(null);
+
+  const handleEditMovie = (movie) => {
+    setEditedMovie(movie);
+    setIsDialogOpen(true);
+  };
+
+  const handleAddMovie = (movie) => {
+    // Handle adding a new movie (submit data to API, update state, etc.)
+    setIsDialogOpen(false);
+  };
+
+  const handleDeleteMovie = (movie) => {
+    // TODO
+    // logic for handle delete movie
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+    setEditedMovie(null);
+  };
+
+  const [selectedOption, setSelectedOption] = useState("Add Movie");
+
   return (
     <>
       <ul className="collapsible  popout">
@@ -71,7 +98,7 @@ function App() {
           </span></div>
         </li>
         <li>
-          <div className="collapsible-header"><i className="material-icons">star_half</i>Movie Selection</div>
+          <div className="collapsible-header" tabIndex="3"><i className="material-icons">star_half</i>Movie Selection</div>
           <div className="collapsible-body black-background">
             <div ref={movieDetailRef} className='row'>
               {selectedMovie ? (
@@ -104,9 +131,56 @@ function App() {
             </div>
           </div>
         </li>
+        <li>
+          <div className="collapsible-header"><i className="material-icons">star_half</i>Movie Operations</div>
+          <div className="collapsible-body black"><span>  <div className="input-field dropdown-container">
+            <p className="label">Movie Operations : </p>
+            <select className="black" value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
+              <option value="Add Movie">Add Movie</option>
+              <option value="Edit Movie">Edit Movie</option>
+              <option value="Delete Movie">Delete Movie</option>
+            </select>
+          </div>
+            {selectedOption === "Add Movie" && (
+              <button className="btn waves-effect waves-orange yellow black-text btn-large" onClick={() => setIsDialogOpen(true)}>
+                Add Movie
+              </button>
+            )}
 
+            {selectedOption === "Edit Movie" && (
+              <button className="btn waves-effect waves-orange yellow black-text btn-large" onClick={() => setIsDialogOpen(true)}>
+                Edit Movie
+              </button>
+            )}
+
+            {selectedOption === "Delete Movie" && (
+              <button className="btn waves-effect waves-orange yellow black-text btn-large" onClick={() => setIsDialogOpen(true)}>
+                Delete Movie
+              </button>
+            )}
+
+            {isDialogOpen && selectedOption === "Add Movie" && (
+              <Dialog title="Add Movie" onClose={handleCloseDialog}>
+                <MovieForm initialMovie={null} onSubmit={handleAddMovie} />
+              </Dialog>
+            )}
+
+            {isDialogOpen && selectedOption === "Edit Movie" && (
+              <Dialog title="Edit Movie" onClose={handleCloseDialog}>
+                <MovieForm initialMovie={MovieMetadata[2]} onSubmit={handleEditMovie} />
+              </Dialog>
+            )}
+
+            {isDialogOpen && selectedOption === "Delete Movie" && (
+              <Dialog title="Delete Movie" onClose={handleCloseDialog}>
+                <MovieForm initialMovie={MovieMetadata[2]} deleteMovie={true} onSubmit={handleDeleteMovie} />
+              </Dialog>
+            )}
+          </span></div>
+        </li>
       </ul>
     </>
+
   );
 
 }
