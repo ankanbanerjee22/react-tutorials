@@ -92,7 +92,6 @@ function App() {
       if (error) {
         // Handle error, show an error message, etc.
       } else {
-        console.log('addded movie is : ', data);
       }
     } catch (error) {
       console.error('Error:', error);
@@ -106,7 +105,6 @@ function App() {
       if (error) {
         // Handle error, show an error message, etc.
       } else {
-        console.log('Updated movie : ', data);
       }
     } catch (error) {
       console.error('Error:', error);
@@ -120,7 +118,6 @@ function App() {
       if (error) {
         // Handle error, show an error message, etc.
       } else {
-        console.log('deleted movie is : ', data);
       }
     } catch (error) {
       console.error('Error:', error);

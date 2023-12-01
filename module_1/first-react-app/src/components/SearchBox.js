@@ -74,7 +74,6 @@ const SearchBox = ({ initialQuery = '', onSearch }) => {
             if (error) {
 
             } else {
-                console.log('addded movie is : ', data);
             }
         } catch (error) {
             console.error('Error:', error);

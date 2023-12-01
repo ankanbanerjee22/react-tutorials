@@ -15,7 +15,6 @@ const MovieDatabaseService = {
       if (error) {
         // Handle error
       } else {
-        console.log('Updated movie : ', data);
       }
     } catch (error) {
       console.error('Error:', error);
