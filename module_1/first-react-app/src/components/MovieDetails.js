@@ -53,7 +53,7 @@ const MovieDetails = ({ selectedMovie, onClose }) => {
                                 </div>
                                 <div> <StarRating rating={vote_average} /></div>
                                 <p className="green-text" ><span><strong>{displayedGenre}</strong></span></p>
-                                <div className="movie-description-text"><strong>Description: </strong>{displayedDescription}</div>
+                                <div className="movie-description-text"><b>Description: </b>{displayedDescription}</div>
                             </div>
                         </div>
                     </div>

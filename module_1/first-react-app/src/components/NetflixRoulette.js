@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useSearchParams, useNavigate, useParams } from 'react-router-dom';
+import { useSearchParams, useNavigate, useParams, Outlet } from 'react-router-dom';
 import SearchBox from './SearchBox.js';
 import MovieGenre from './MovieGenre.js';
 import MovieSortBy from './MovieSortBy.js';
 import Movie from './Movie.js';
 import MovieDetails from './MovieDetails.js';
-import MovieDatabaseService from '../services/MovieDatabaseService.js';
+import MovieDatabaseService from '../services/MovieDatabaseRepository.js';
 import { SEARCH_PARAM_GENRE_KEY, SEARCH_PARAM_SORTBY_KEY, SEARCH_PARAM_QUERY_KEY, DEFAULT_PAGE_SIZE } from '../literals.js';
 import '../css/NetflixRoulette.css';
 
@@ -175,6 +175,7 @@ export function NetflixRoulette() {
 
   return (
     <>
+    <Outlet/>
       <div ref={movieDetailRef} className="row">
         {selectedMovie ? (
           <MovieDetails
@@ -204,7 +205,7 @@ export function NetflixRoulette() {
         {/*  fetching from movie */}
         {Array.isArray(movies) && movies.length > 0 && movies.map((movie) => {
           return (
-            <div className="col s6 m4 l3 xxl" key={movie.poster_path}>
+            <div className="col s6 m4 l3 xxl" key={movie.id}>
               <Movie movie={movie}
                 onMovieClick={() => handleTileClick(movie)}>
               </Movie>

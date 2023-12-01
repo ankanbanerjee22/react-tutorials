@@ -8,7 +8,7 @@ const StarRating = ({ rating }) => {
     } else if (hasHalfStar && index === filledStars) {
       return <i key={index} className="material-icons  yellow-text">star_half</i>;
     } else {
-      return <i key={index} className="material-icons grey-text" style={{opacity: '0.1'}}>star_outline</i>;
+      return <i key={index} className="material-icons grey-text" style={{opacity: '0.2'}}>star_outline</i>;
     }
   });
 
