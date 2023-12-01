@@ -40,7 +40,7 @@ const SearchBox = ({ initialQuery, onSearch }) => {
         <>
             <div className="row center-align">
                 <div className="col s12 m12">
-                    <div className="card small card-style">
+                    <div className="card medium card-style">
                         <div className="card-content overlay-style">
                             <div className="row center-align">
                                 <div className="col s12 center-align">
@@ -62,7 +62,7 @@ const SearchBox = ({ initialQuery, onSearch }) => {
                                 </div>
                                 <div className="col s2 left-align search-movie-button">
                                     <button
-                                        className="waves-effect waves-light red btn"
+                                        className="waves-effect waves-light red btn-small"
                                         onClick={handleSearch}
                                     >
                                         Search
