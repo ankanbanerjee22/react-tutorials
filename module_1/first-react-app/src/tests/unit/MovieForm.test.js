@@ -10,13 +10,13 @@ describe('MovieForm component', () => {
     };
 
     const initialMovie = {
-        movieName: 'Example Movie',
-        releaseYear: '2022',
-        imageUrl: 'http://example.com/poster.jpg',
-        rating: 8,
+        title: 'Example Movie',
+        release_date: '2022-01-01',
+        poster_path: 'http://example.com/poster.jpg',
+        vote_average: 8,
         genres: ['action', 'adventure'],
-        duration: '120',
-        description: 'A sample movie description',
+        runtime: '120',
+        overview: 'A sample movie description',
     };
 
     const mockOnSubmit = jest.fn();
@@ -28,10 +28,10 @@ describe('MovieForm component', () => {
         expect(getByTestId('title')).toHaveValue(initialMovie.movieName);
         expect(getByTestId('releaseDate')).toHaveValue('2022-01-01');
         expect(getByTestId('movieUrl')).toHaveValue(initialMovie.imageUrl);
-        expect(getByTestId('rating')).toHaveValue(initialMovie.rating);
+        expect(getByTestId('rating')).toHaveValue(initialMovie.vote_average);
         expect(getByTestId('dropdown')).toHaveValue(['action', 'adventure']);
-        expect(getByTestId('runtime')).toHaveValue(initialMovie.duration);
-        expect(getByTestId('overview')).toHaveValue(initialMovie.description);
+        expect(getByTestId('runtime')).toHaveValue(initialMovie.runtime);
+        expect(getByTestId('overview')).toHaveValue(initialMovie.overview);
     });
 
     it('calls onSubmit with form data when submitted', () => {
@@ -40,12 +40,12 @@ describe('MovieForm component', () => {
         fireEvent.submit(getByTestId('movie-form'));
 
         const expectedFormData = {
-            title: initialMovie.movieName,
+            title: initialMovie.title,
             releaseDate: '2022-01-01',
-            movieUrl: initialMovie.imageUrl,
-            rating: 8,
-            runtime: initialMovie.duration,
-            overview: initialMovie.description,
+            movieUrl: initialMovie.poster_path,
+            rating: initialMovie.vote_average,
+            runtime: initialMovie.runtime,
+            overview: initialMovie.overview,
         };
 
         expect(mockOnSubmit).toHaveBeenCalledWith(expectedFormData);

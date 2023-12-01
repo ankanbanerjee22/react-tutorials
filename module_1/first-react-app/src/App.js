@@ -1,37 +1,39 @@
 import React, { useEffect, useState, useRef } from 'react';
 import SearchBox from './components/SearchBox.js';
 import MovieGenre from './components/MovieGenre.js';
-import CounterLegacy from './components/CounterLegacy.js';
 import MovieSortBy from './components/MovieSortBy.js';
 import Movie from './components/Movie.js';
-import MovieMetadata from './movie-metadata.json';
 import MovieDetails from './components/MovieDetails.js';
-import Dialog from './components/Dialog.js';
-import MovieForm from './components/MovieForm.js';
+import MovieDatabaseService from './services/MovieDatabaseService.js';
+
 
 function App() {
 
-  useEffect(() => {
-    const collapsibleElems = document.querySelectorAll('.collapsible');
-
-    window.M.Collapsible.init(collapsibleElems, {
-      accordion: false
-    });
-
-  }, []);
-
-  const genres = ['All', 'Action', 'Adventure', 'Comedy', 'Drama', 'Sci-Fi'];
+  const [movies, setMovies] = useState([]);
+  const [pagesize, setPagesize] = useState(10);
+  const genres = ['All', 'Documentary', 'Comedy', 'Horror', 'Crime'];
   const [selectedGenre, setSelectedGenre] = useState('All');
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [selectedSearchQuery, setSelectedSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState('release_date');
+  const [resultCount, setResultCount] = useState(0);
+
+  useEffect(() => {
+    setMovies(loadMovies(selectedSearchQuery, sortBy, selectedGenre, pagesize))
+  }, [pagesize, selectedGenre, selectedSearchQuery, sortBy]);
 
   const movieDetailRef = useRef(null);
 
   const handleGenreSelect = (genre) => {
-    setSelectedGenre(genre);
+    const byGenre = genre === 'All' ? '' : genre;
+    setSelectedGenre(byGenre);
+    setPagesize(10);
   };
 
   const handleSearch = (query) => {
-    alert("Searching movies with name: " + query);
+    setSelectedSearchQuery(query);
+    setSelectedGenre('All');
+    setPagesize(10);
   }
 
   const handleTileClick = (movie) => {
@@ -43,144 +45,97 @@ function App() {
     setSelectedMovie(null);
   };
 
-  const [sortBy, setSortBy] = useState('releaseDate');
 
-  const handleSortChange = (value) => {
-    setSortBy(value);
-    alert("selected value is: " + value);
+  const handleSortChange = (sortCriteria) => {
+    setSortBy(sortCriteria);
+    setPagesize(10);
   };
 
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [editedMovie, setEditedMovie] = useState(null);
+  /**
+   * Method that communicates with backend client service to fetch movies data
+   * 
+   * @param {*} searchQuery 
+   * @param {*} sortCriteria 
+   * @param {*} genreFilter 
+   * @param {*} limit 
+   */
+  async function loadMovies(searchQuery, sortCriteria, genreFilter, limit) {
+    try {
+      const { data, error } = await MovieDatabaseService.loadMovies(searchQuery, sortCriteria, genreFilter, limit);
 
-  const handleEditMovie = (movie) => {
-    setEditedMovie(movie);
-    setIsDialogOpen(true);
-  };
+      if (error) {
+        // Handle error, show an error message, etc.
+      } else {
+        setMovies(data.data);
+        setResultCount(data.totalAmount);
+      }
+    } catch (error) {
+      console.error('Error:', error);
 
-  const handleAddMovie = (movie) => {
-    // Handle adding a new movie (submit data to API, update state, etc.)
-    setIsDialogOpen(false);
-  };
+    }
+  }
 
-  const handleDeleteMovie = (movie) => {
-    // TODO
-    // logic for handle delete movie
-  };
-
-  const handleCloseDialog = () => {
-    setIsDialogOpen(false);
-    setEditedMovie(null);
-  };
+  const handleLoadMoreMovie = () => {
+    let updatePagesize = pagesize + 10;
+    setPagesize(updatePagesize);
+  }
 
   const [selectedOption, setSelectedOption] = useState("Add Movie");
 
   return (
     <>
-      <ul className="collapsible  popout">
-        <li>
-          <div className="collapsible-header"><i className="material-icons">star_half</i>Counter Legacy</div>
-          <div className="collapsible-body"><span><CounterLegacy initialValue={0} />
-          </span></div>
-        </li>
-        <li>
-          <div className="collapsible-header"><i className="material-icons">star_half</i>Search Box</div>
-          <div className="collapsible-body"><span><SearchBox initialQuery="" onSearch={handleSearch} /></span></div>
-        </li>
-        <li>
-          <div className="collapsible-header"><i className="material-icons">star_half</i>Movie Genre List</div>
-          <div className="collapsible-body"><span><MovieGenre genres={genres} selectedGenre={selectedGenre} onSelect={handleGenreSelect} />
-          </span></div>
-        </li>
-        <li>
-          <div className="collapsible-header"><i className="material-icons">star_half</i>Movie Sort By</div>
-          <div className="collapsible-body" ><span> <MovieSortBy sortBy={sortBy} onSortChange={handleSortChange}></MovieSortBy>
-          </span></div>
-        </li>
-        <li>
-          <div className="collapsible-header" tabIndex="3"><i className="material-icons">star_half</i>Movie Selection</div>
-          <div className="collapsible-body black-background">
-            <div ref={movieDetailRef} className='row'>
-              {selectedMovie ? (
-                <MovieDetails
-                  imageUrl={selectedMovie.imageUrl}
-                  movieName={selectedMovie.movieName}
-                  releaseYear={selectedMovie.releaseYear}
-                  rating={selectedMovie.rating}
-                  duration={selectedMovie.duration}
-                  description={selectedMovie.description}
-                  genres={selectedMovie.genres}
-                  onClose={handleCloseMovieDetails}
-                />
-              ) : (
-                <SearchBox initialQuery="" onSearch={handleSearch} />
-              )}
+      <div ref={movieDetailRef} className="row">
+        {selectedMovie ? (
+          <MovieDetails
+            imageUrl={selectedMovie.poster_path}
+            movieName={selectedMovie.title}
+            releaseYear={selectedMovie.release_date}
+            rating={selectedMovie.vote_average}
+            duration={selectedMovie.runtime}
+            description={selectedMovie.overview}
+            genres={selectedMovie.genres}
+            onClose={handleCloseMovieDetails}
+          />
+        ) : (
+          <SearchBox initialQuery={selectedSearchQuery} onSearch={handleSearch} />
+        )}
+      </div>
+
+      <div className="row">
+        <div className="col s9 m8">
+          <MovieGenre genres={genres} selectedGenre={selectedGenre} onSelect={handleGenreSelect} />
+        </div>
+        <MovieSortBy sortBy={sortBy} onSortChange={handleSortChange}></MovieSortBy>
+      </div>
+
+      <div className="row">
+        <div className="col s12 m12 white-text">
+          <h6><strong>{resultCount}</strong> movies found</h6>
+        </div>
+      </div>
+
+      <div className="row">
+        {/*  fetching from movie */}
+        {Array.isArray(movies) && movies.length > 0 && movies.map((movie) => {
+          return (
+            <div className="col s6 m4 l3 xxl" key={movie.poster_path}>
+              <Movie movie={movie}
+                onMovieClick={() => handleTileClick(movie)} >
+              </Movie>
             </div>
-            <div className="row">
-              {/*  fetching from movie */}
-              {MovieMetadata.map((movie) => {
-                return (
-                  <div className="col s6 m4 l3 xxl" key={movie.imageUrl}>
-                    <Movie imageUrl={movie.imageUrl} movieName={movie.movieName}
-                      releaseYear={movie.releaseYear} genres={movie.genres}
-                      onClick={() => handleTileClick(movie)} >
-                    </Movie>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </li>
-        <li>
-          <div className="collapsible-header"><i className="material-icons">star_half</i>Movie Operations</div>
-          <div className="collapsible-body black"><span>  <div className="input-field dropdown-container">
-            <p className="label">Movie Operations : </p>
-            <select className="black" value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
-              <option value="Add Movie">Add Movie</option>
-              <option value="Edit Movie">Edit Movie</option>
-              <option value="Delete Movie">Delete Movie</option>
-            </select>
-          </div>
-            {selectedOption === "Add Movie" && (
-              <button className="btn waves-effect waves-orange yellow black-text btn-large" onClick={() => setIsDialogOpen(true)}>
-                Add Movie
-              </button>
-            )}
+          )
+        })}
+      </div>
+      
+      {resultCount > 10 && (<div className="row">
+        <div className="col s12 center-align">
+          <button className="btn-large waves-effect waves-light transparent custom-btn" onClick={handleLoadMoreMovie}>
+            Load More
+          </button>
+        </div>
+      </div>)}
 
-            {selectedOption === "Edit Movie" && (
-              <button className="btn waves-effect waves-orange yellow black-text btn-large" onClick={() => setIsDialogOpen(true)}>
-                Edit Movie
-              </button>
-            )}
-
-            {selectedOption === "Delete Movie" && (
-              <button className="btn waves-effect waves-orange yellow black-text btn-large" onClick={() => setIsDialogOpen(true)}>
-                Delete Movie
-              </button>
-            )}
-
-            {isDialogOpen && selectedOption === "Add Movie" && (
-              <Dialog title="Add Movie" onClose={handleCloseDialog}>
-                <MovieForm initialMovie={null} onSubmit={handleAddMovie} />
-              </Dialog>
-            )}
-
-            {isDialogOpen && selectedOption === "Edit Movie" && (
-              <Dialog title="Edit Movie" onClose={handleCloseDialog}>
-                <MovieForm initialMovie={MovieMetadata[2]} onSubmit={handleEditMovie} />
-              </Dialog>
-            )}
-
-            {isDialogOpen && selectedOption === "Delete Movie" && (
-              <Dialog title="Delete Movie" onClose={handleCloseDialog}>
-                <MovieForm initialMovie={MovieMetadata[2]} deleteMovie={true} onSubmit={handleDeleteMovie} />
-              </Dialog>
-            )}
-          </span></div>
-        </li>
-      </ul>
     </>
-
   );
 
 }

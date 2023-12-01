@@ -31,8 +31,12 @@
     padding: 2px 15px !important;
     margin-top: 0px !important;
     min-width: 10em !important;
-
+    caret-color: white !important;
     box-shadow: 1px solid white !important;
+}
+
+.font-large {
+    font-size: 1.5em !important;
 }
 
 input:not([type]):focus:not([readonly]),
@@ -63,10 +67,12 @@ input:-webkit-autofill:active {
     /* Transition background color over a long duration */
 }
 
+
+
 input:-internal-autofill-selected {
     appearance: menulist-button;
     background-image: none !important;
-    background-color: none !important;
+    background-color: -internal-light-dark(rgba(232, 240, 254, 0), rgba(70, 90, 126, 0.4)) !important;
     color: fieldtext !important;
 }
 
