@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 // import { useSearchParams, useNavigate, useParams, Outlet } from 'react-router-dom';
-import { useSearchParams, useNavigate, useParams, Outlet }  from "@remix-run/react"
+import { useSearchParams, useNavigate, useParams, Outlet,useLoaderData }  from "@remix-run/react"
 
 import SearchBox from './SearchBox.js';
 import MovieGenre from './MovieGenre.js';
@@ -12,7 +12,7 @@ import { SEARCH_PARAM_GENRE_KEY, SEARCH_PARAM_SORTBY_KEY, SEARCH_PARAM_QUERY_KEY
 import '../css/NetflixRoulette.css';
 
 // import { useLoaderData} from "@remix-run/react";
-import { json } from "@remix-run/node"
+import { json  } from "@remix-run/node"
 
 
 // export async function loader() {
@@ -29,12 +29,13 @@ import { json } from "@remix-run/node"
 
 
 export function NetflixRoulette() {
+  const loadedMovies = useLoaderData();
 
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([loadedMovies]);
   const [pagesize, setPagesize] = useState(DEFAULT_PAGE_SIZE);
   const genres = ['All', 'Documentary', 'Comedy', 'Horror', 'Crime'];
   const [selectedGenre, setSelectedGenre] = useState('All');
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState(loadedMovies);
   const [selectedSearchQuery, setSelectedSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('release_date');
   const [offset, setOffset] = useState(0);
