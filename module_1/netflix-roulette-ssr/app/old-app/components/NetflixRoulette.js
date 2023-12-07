@@ -11,44 +11,25 @@ import MovieDatabaseService from '../services/MovieDatabaseRepository.js';
 import { SEARCH_PARAM_GENRE_KEY, SEARCH_PARAM_SORTBY_KEY, SEARCH_PARAM_QUERY_KEY, DEFAULT_PAGE_SIZE } from '../literals.js';
 import '../css/NetflixRoulette.css';
 
-// import { useLoaderData} from "@remix-run/react";
-import { json  } from "@remix-run/node"
-
-
-// export async function loader() {
-//   // Fetch data from an API or database using your service
-//   const { data, error } = await MovieDatabaseService.loadMovies();
-  
-//   if (error) {
-//     // Handle error accordingly, e.g., redirect or display an error page
-//     throw new Error('Failed to fetch movies');
-//   }
-
-//   return json({ movies: data });
-// };
-
 
 export function NetflixRoulette() {
   const loadedMovies = useLoaderData();
 
-  const [movies, setMovies] = useState([loadedMovies]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const { movieId } = useParams();
+
+  const [movies, setMovies] = useState(!Array.isArray(loadedMovies) ? [loadedMovies] : loadedMovies );
   const [pagesize, setPagesize] = useState(DEFAULT_PAGE_SIZE);
   const genres = ['All', 'Documentary', 'Comedy', 'Horror', 'Crime'];
   const [selectedGenre, setSelectedGenre] = useState('All');
-  const [selectedMovie, setSelectedMovie] = useState(loadedMovies);
+  const [selectedMovie, setSelectedMovie] = useState(movieId ? loadedMovies : null);
   const [selectedSearchQuery, setSelectedSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('release_date');
   const [offset, setOffset] = useState(0);
   const [resultCount, setResultCount] = useState(0);
 
   const movieDetailRef = useRef(null);
-
-  const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
-  const { movieId } = useParams();
-
-  // let abcmovies  = useLoaderData();
-
 
   // hook to handle search param values
   useEffect(() => {

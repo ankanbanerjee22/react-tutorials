@@ -15,20 +15,7 @@ export default function MovieIdIndex() {
     const hydrated = useHydrated();
     return (
         <>
-            {/* <PageNotFound></PageNotFound> */}
-
-            <ClientOnly fallback={<p>Loading...</p>}>
-                {() => <Counter />}
-            </ClientOnly>
-
-
-            <button
-                type="button"
-                disabled={!hydrated}
-                onClick={() => alert("I has JS loaded!")}
-            >
-                Try me!
-            </button>
+            <PageNotFound></PageNotFound>
         </>
     );
 }

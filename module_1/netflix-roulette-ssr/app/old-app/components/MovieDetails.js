@@ -22,7 +22,7 @@ const MovieDetails = ({ selectedMovie, onClose }) => {
                                 alt={title}
                                 className="movie-image-style"
                                 onError={(e) => {
-                                    e.target.src = '/images/image_not_available.svg.png';
+                                    e.target.src = process.env.PUBLIC_URL + '/images/your_image_file_name.jpg';
                                     e.target.onError = null;
                                 }}
                             />
