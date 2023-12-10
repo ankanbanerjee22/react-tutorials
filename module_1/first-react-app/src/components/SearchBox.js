@@ -1,87 +1,85 @@
 import React, { useEffect, useState } from 'react';
-import '../css/SearchBox.css'
+import '../css/SearchBox.css';
+import { useNavigate } from 'react-router';
 import { FIND_YOUR_MOVIE } from '../literals';
 import Dialog from './Dialog';
 import MovieForm from './MovieForm';
 import MovieDatabaseService from '../services/MovieDatabaseRepository';
-import { useNavigate } from 'react-router';
 
 /**
  * Requirements
  * --------------
  * implement a component that renders a search input and a button that triggers a new search.
- * 
+ *
  * The component should accept two properties:
  * 1. Initial search query. Use the value to set the initial value for the input
- * 2. A "onSearch" callback property. Call the callback property 
- *          every time the user presses Enter when the input has focus 
- *          or when the user clicks the Search button. 
+ * 2. A "onSearch" callback property. Call the callback property
+ *          every time the user presses Enter when the input has focus
+ *          or when the user clicks the Search button.
  *          Pass current input value in callback arguments.
- * 
+ *
  */
 const SearchBox = ({ initialQuery = '', onSearch }) => {
-    const [query, setQuery] = useState(initialQuery);
-    const navigate = useNavigate();
+  const [query, setQuery] = useState(initialQuery);
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        setQuery(initialQuery || '');
-    }, [initialQuery]);
+  useEffect(() => {
+    setQuery(initialQuery || '');
+  }, [initialQuery]);
 
-    // handler for input change
-    const handleInputChange = (event) => {
-        setQuery(event.target.value);
-    };
+  // handler for input change
+  const handleInputChange = (event) => {
+    setQuery(event.target.value);
+  };
 
-    // handler on hiting search button
-    const handleSearch = () => {
-        //setQuery(query);
-        onSearch(query);
-    };
+  // handler on hiting search button
+  const handleSearch = () => {
+    // setQuery(query);
+    onSearch(query);
+  };
 
-    // handler for Enter press, same behaviour as hitting search button
-    const handleKeyPress = (event) => {
-        if (event.key === 'Enter') {
-            setQuery(query);
-            onSearch(query);
-        }
-    };
-
-    const handleAddMovieButton = () => {
-        setIsDialogOpen(true);
-        changePath('/add');
+  // handler for Enter press, same behaviour as hitting search button
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      setQuery(query);
+      onSearch(query);
     }
-    
-    const changePath = (path) => {
-        window.history.pushState({}, '', path);
+  };
+
+  const handleAddMovieButton = () => {
+    setIsDialogOpen(true);
+    changePath('/add');
+  };
+
+  const changePath = (path) => {
+    window.history.pushState({}, '', path);
+  };
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };
+
+  const handleAddMovie = (movie) => {
+    addNewMovie(movie);
+    setIsDialogOpen(false);
+    navigate('/');
+    window.location.reload(false);
+  };
+
+  async function addNewMovie(movieData) {
+    try {
+      const { data, error } = await MovieDatabaseService.addMovie(movieData);
+
+      if (error) {
+
+      } else {
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
-    const [isDialogOpen, setIsDialogOpen] = useState(false);
-    const handleCloseDialog = () => {
-        setIsDialogOpen(false);
-    };
+  }
 
-    const handleAddMovie = (movie) => {
-        addNewMovie(movie);
-        setIsDialogOpen(false);
-        navigate('/');
-        window.location.reload(false);
-
-    };
-
-    async function addNewMovie(movieData) {
-        try {
-            const { data, error } = await MovieDatabaseService.addMovie(movieData);
-
-            if (error) {
-
-            } else {
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    }
-
-
-    return (
+  return (
         <>
             <div className="row center-align">
                 <div className="col s12 m12">
@@ -132,8 +130,7 @@ const SearchBox = ({ initialQuery = '', onSearch }) => {
                 </div>
             </div>
         </>
-    );
-
+  );
 };
 
 export default SearchBox;

@@ -1,6 +1,8 @@
 const path = require('path');
-//const HtmlWebpackPlugin = require('html-webpack-plugin');
-//const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HWP = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
+
 
 module.exports = {
   entry: './src/index.js',
@@ -31,6 +33,14 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HWP({ template: path.join(__dirname, '/src/index.html') }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'public', to: '' }, // Copy all files from 'public' to root of build output
+      ],
+    })
+  ]
 
 
 }
