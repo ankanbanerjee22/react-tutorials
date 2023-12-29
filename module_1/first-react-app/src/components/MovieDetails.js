@@ -3,12 +3,13 @@ import "../css/MovieDetails.css"
 import { NOT_APPLICABLE, UNKNOWN_MOVIE } from "../literals";
 import {ConvertMinutesToHoursAndMinutes} from '../services/UtilityService'
 
-const MovieDetails = ({ imageUrl, movieName, releaseYear, rating, duration, description, genres, onClose }) => {
+const MovieDetails = ({ selectedMovie, onClose }) => {
+    const {id,poster_path, title, release_date, vote_average, duration, overview, genres} = selectedMovie;
 
     const displayedGenre = genres ? genres.flat().join(", ") : NOT_APPLICABLE;
-    const displayedMovieName = movieName ? movieName : UNKNOWN_MOVIE;
-    const displayedReleaseYear = releaseYear ? releaseYear : NOT_APPLICABLE;
-    const displayedDescription = description ? ( description.length <= 400 ? description : description.slice(0, 400) + ".......") : NOT_APPLICABLE
+    const displayedMovieName = title ? title : UNKNOWN_MOVIE;
+    const displayedReleaseYear = release_date ? release_date : NOT_APPLICABLE;
+    const displayedDescription = overview ? ( overview.length <= 400 ? overview : overview.slice(0, 400) + ".......") : NOT_APPLICABLE
     const displayedDuration = duration ? ConvertMinutesToHoursAndMinutes(duration): NOT_APPLICABLE;
 
     return (
@@ -16,9 +17,9 @@ const MovieDetails = ({ imageUrl, movieName, releaseYear, rating, duration, desc
             <div className="row">
                 <div className="col s4 m4 xl3">
                     <div className="card horizontal medium black ">
-                        <img src={imageUrl}
+                        <img src={poster_path || '/images/image_not_available.svg.png'}
                                 height="100%"
-                                alt={movieName}
+                                alt={title}
                                 className="movie-image-style"
                                 onError={(e) => {
                                     e.target.src = '/images/image_not_available.svg.png';
@@ -50,7 +51,7 @@ const MovieDetails = ({ imageUrl, movieName, releaseYear, rating, duration, desc
                                         <p className="red-text"><strong>{displayedDuration}</strong></p>
                                     </div>
                                 </div>
-                                <div> <StarRating rating={rating} /></div>
+                                <div> <StarRating rating={vote_average} /></div>
                                 <p className="green-text" ><span><strong>{displayedGenre}</strong></span></p>
                                 <div className="movie-description-text"><strong>Description: </strong>{displayedDescription}</div>
                             </div>

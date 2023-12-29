@@ -31,11 +31,18 @@
 
 
 .card-menu-dropdown {
-    /* position: relative; */
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
 
 .card-image:hover .card-menu-dropdown {
     opacity: .9;
+}
+
+.movie-card {
+    height: 425px !important;
+    margin-bottom: 150px !important;
+}
+.movie-card:hover {
+    transform: scale(1.1) ;
 }

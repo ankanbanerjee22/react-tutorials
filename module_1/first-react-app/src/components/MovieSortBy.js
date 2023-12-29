@@ -16,7 +16,7 @@ const MovieSortBy = ({ sortBy, onSortChange }) => {
     
     useEffect(() => {
         window.M.AutoInit();
-    }, []);
+    }, [sortBy]);
 
     return (
         <>

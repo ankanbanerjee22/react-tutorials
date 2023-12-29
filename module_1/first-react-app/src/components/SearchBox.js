@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/SearchBox.css'
 import { FIND_YOUR_MOVIE } from '../literals';
 import Dialog from './Dialog';
@@ -16,8 +16,12 @@ import MovieForm from './MovieForm';
  *          Pass current input value in callback arguments.
  * 
  */
-const SearchBox = ({ initialQuery, onSearch }) => {
+const SearchBox = ({ initialQuery = '', onSearch }) => {
     const [query, setQuery] = useState(initialQuery);
+
+    useEffect(() => {
+        setQuery(initialQuery || '');
+    }, [initialQuery]);
 
     // handler for input change
     const handleInputChange = (event) => {
