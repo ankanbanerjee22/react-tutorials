@@ -3,6 +3,9 @@ import '../css/SearchBox.css'
 import { FIND_YOUR_MOVIE } from '../literals';
 import Dialog from './Dialog';
 import MovieForm from './MovieForm';
+import MovieDatabaseService from '../services/MovieDatabaseRepository';
+import { useNavigate } from 'react-router';
+
 /**
  * Requirements
  * --------------
@@ -18,6 +21,7 @@ import MovieForm from './MovieForm';
  */
 const SearchBox = ({ initialQuery = '', onSearch }) => {
     const [query, setQuery] = useState(initialQuery);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setQuery(initialQuery || '');
@@ -42,15 +46,40 @@ const SearchBox = ({ initialQuery = '', onSearch }) => {
         }
     };
 
+    const handleAddMovieButton = () => {
+        setIsDialogOpen(true);
+        changePath('/add');
+    }
+    
+    const changePath = (path) => {
+        window.history.pushState({}, '', path);
+    }
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const handleCloseDialog = () => {
         setIsDialogOpen(false);
-        //setEditedMovie(null);
-      };
-      const handleAddMovie = (movie) => {
+    };
+
+    const handleAddMovie = (movie) => {
+        addNewMovie(movie);
         setIsDialogOpen(false);
-      };
-    
+        navigate('/');
+        window.location.reload(false);
+
+    };
+
+    async function addNewMovie(movieData) {
+        try {
+            const { data, error } = await MovieDatabaseService.addMovie(movieData);
+
+            if (error) {
+
+            } else {
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
 
     return (
         <>
@@ -60,12 +89,11 @@ const SearchBox = ({ initialQuery = '', onSearch }) => {
                         <div className="card-content overlay-style">
                             <div className="row right-align">
                                 <div className="col s12">
-                                    <button className="btn-large waves-effect waves-light add-movie-btn" onClick={() => setIsDialogOpen(true)}>
-                                    + Add Movie
+                                    <button className="btn-large waves-effect waves-light add-movie-btn" onClick={() => handleAddMovieButton()}>
+                                        + Add Movie
                                     </button>
-
-                                    {isDialogOpen && (
-                                        <Dialog title="Add Movie" onClose={handleCloseDialog}>
+                                    {(
+                                        <Dialog title="Add Movie" onClose={handleCloseDialog} isOpen={isDialogOpen}>
                                             <MovieForm initialMovie={null} onSubmit={handleAddMovie} />
                                         </Dialog>
                                     )}
@@ -97,7 +125,7 @@ const SearchBox = ({ initialQuery = '', onSearch }) => {
                                         </button>
                                     </div>
                                 </div>
-                                <div className="col s6 left-align search-movie-button"/>
+                                <div className="col s6 left-align search-movie-button" />
                             </div>
                         </div>
                     </div>
