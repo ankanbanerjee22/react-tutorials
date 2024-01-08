@@ -1,7 +1,6 @@
 import React from 'react';
 
-const PageNotFound = () => {
-    return (
+const PageNotFound = () => (
         <div id="wrapper" className="center-align" >
             <img
                 src="/images/not_found_404.png"
@@ -10,8 +9,6 @@ const PageNotFound = () => {
                 className="center-align"
             />
         </div>
-    );
-
-};
+);
 
 export default PageNotFound;

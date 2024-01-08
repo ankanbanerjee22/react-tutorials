@@ -1,31 +1,48 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-const Dialog = ({ title, children, onClose }) => {
-    useEffect(() => {
-        const modalElement = document.querySelector('.modal');
-        window.M.Modal.init(modalElement, {
-            dismissible: false,
-            opacity: 0.8,
-            preventScrolling: false
-        });
+const Dialog = ({
+  title, children, onClose, isOpen,
+}) => {
+  const [modalInstance, setModalInstance] = useState(null);
 
-        // Open the modal
-        const modalInstance = window.M.Modal.getInstance(modalElement);
-        modalInstance && modalInstance.open();
+  useEffect(() => {
+    if (isOpen) {
+      const modalElement = document.querySelector('.modal');
+      const instance = window.M.Modal.init(modalElement, {
+        dismissible: false,
+        opacity: 0.8,
+        preventScrolling: false,
+      });
+      instance.isOpen = false;
 
-        // Clean up modal instance on component unmount
-        return () => {
-            modalInstance && modalInstance.destroy();
-        };
-    }, []);
+      setModalInstance(instance);
+    }
+    return () => {
+      modalInstance && modalInstance.destroy();
+    };
+  }, [isOpen]);
 
-    return ReactDOM.createPortal(
-        <div className="modal modal-fixed-footer large grey darken-4">
+  useEffect(() => {
+    if (isOpen && modalInstance) {
+      modalInstance.open();
+    }
+  }, [isOpen, modalInstance]);
+
+  const handleClose = () => {
+    if (modalInstance) {
+      modalInstance.destroy();
+      setModalInstance(null);
+      onClose();
+    }
+  };
+
+  return ReactDOM.createPortal(
+        <div className="modal movie-form-modal modal-fixed-footer large grey darken-4">
             <div className="modal-content white-text">
                 <div className="row">
                     <div className="col s12 m12 l12 left-align">
-                        <button className="btn-floating btn-medium waves-effect waves-light red right" onClick={onClose}>
+                        <button className="btn-floating btn-medium waves-effect waves-light red right" onClick={handleClose}>
                             <i className="material-icons">close</i>
                         </button>
                     </div>
@@ -40,9 +57,8 @@ const Dialog = ({ title, children, onClose }) => {
                 </div>
             </div>
         </div>,
-        document.getElementById('portal')
-    );
-
+        document.getElementById('portal'),
+  );
 };
 
 export default Dialog;

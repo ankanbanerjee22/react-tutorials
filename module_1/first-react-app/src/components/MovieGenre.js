@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import '../css/MovieGenre.css';
 
 /**
- * 
+ *
  * Requirements
  * ----------------
  * implement a component that renders a list of movie genres with currently selected genre highlighted.
@@ -12,20 +12,19 @@ import '../css/MovieGenre.css';
  * 3. A "onSelect" callback property. Call the callback function when the user clicks on any genre button. Pass respective genre name to the callback arguments.
  *
  *
- * @param {*} param0 
- * @returns 
+ * @param {*} param0
+ * @returns
  */
 
 const MovieGenre = ({ genres, selectedGenre, onSelect }) => {
   const tabsRef = useRef(null);
 
   useEffect(() => {
-     const instance = window.M.Tabs.init(tabsRef.current);
+    const instance = window.M.Tabs.init(tabsRef.current);
   }, [selectedGenre]);
 
   return (
     <>
-
       <ul className="tabs movie-genre-tabs z-depth-1" ref={tabsRef}>
         {genres.map((genre) => {
           const genreLink = `#${genre}`;
@@ -38,15 +37,11 @@ const MovieGenre = ({ genres, selectedGenre, onSelect }) => {
                 {genre}
               </a>
             </li>
-          )
+          );
         })}
       </ul>
-
-
     </>
   );
-
 };
-
 
 export default MovieGenre;
