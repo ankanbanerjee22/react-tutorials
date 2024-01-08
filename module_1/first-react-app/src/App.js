@@ -1,17 +1,25 @@
 import { NetflixRoulette } from './components/NetflixRoulette.js';
 import PageNotFound from './components/PageNotFound.js';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {  Routes, Route } from 'react-router-dom';
+
+import AddMovie from './components/AddMovie.js'
+import EditMovie from './components/EditMovie.js';
+import DeleteMovie from './components/DeleteMovie.js';
 
 function App() {
-
   return (
-    <Router>
+    <>
       <Routes>
-        <Route exact path="/" element={<NetflixRoulette />} />
-        <Route exact path="/:movieId" element={<NetflixRoulette />} />
-        <Route exact path="*" element={<PageNotFound />} />
+        <Route path="/" element={<NetflixRoulette />}>
+          <Route path="add" element={<AddMovie/>} />
+          <Route path=":movieId" >
+            <Route path="edit" element={<EditMovie/>} />
+            <Route path="delete" element={<DeleteMovie/>} />
+          </Route>
+        </Route>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </Router>
+    </>
   );
 
 }
