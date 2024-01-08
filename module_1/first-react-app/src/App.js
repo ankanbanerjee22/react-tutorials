@@ -1,3 +1,4 @@
+import React from 'react';
 import { NetflixRoulette } from './components/NetflixRoulette.js';
 import PageNotFound from './components/PageNotFound.js';
 import {  Routes, Route } from 'react-router-dom';

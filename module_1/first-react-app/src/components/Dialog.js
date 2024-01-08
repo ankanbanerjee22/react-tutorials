@@ -1,42 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-const Dialog = ({ title, children, onClose, isOpen }) => {
+const Dialog = ({
+  title, children, onClose, isOpen,
+}) => {
+  const [modalInstance, setModalInstance] = useState(null);
 
-    const [modalInstance, setModalInstance] = useState(null);
+  useEffect(() => {
+    if (isOpen) {
+      const modalElement = document.querySelector('.modal');
+      const instance = window.M.Modal.init(modalElement, {
+        dismissible: false,
+        opacity: 0.8,
+        preventScrolling: false,
+      });
+      instance.isOpen = false;
 
-    useEffect(() => {
-        if (isOpen) {
-            const modalElement = document.querySelector('.modal');
-            const instance = window.M.Modal.init(modalElement, {
-                dismissible: false,
-                opacity: 0.8,
-                preventScrolling: false
-            });
-            instance.isOpen = false;
-
-            setModalInstance(instance);
-        }
-        return () => {
-            modalInstance && modalInstance.destroy();
-        };
-    }, [isOpen]);
-
-    useEffect(() => {
-        if (isOpen && modalInstance) {
-            modalInstance.open();
-        }
-    }, [isOpen, modalInstance]);
-
-    const handleClose = () => {
-        if (modalInstance) {
-            modalInstance.destroy();
-            setModalInstance(null);
-            onClose();
-        }
+      setModalInstance(instance);
+    }
+    return () => {
+      modalInstance && modalInstance.destroy();
     };
+  }, [isOpen]);
 
-    return ReactDOM.createPortal(
+  useEffect(() => {
+    if (isOpen && modalInstance) {
+      modalInstance.open();
+    }
+  }, [isOpen, modalInstance]);
+
+  const handleClose = () => {
+    if (modalInstance) {
+      modalInstance.destroy();
+      setModalInstance(null);
+      onClose();
+    }
+  };
+
+  return ReactDOM.createPortal(
         <div className="modal movie-form-modal modal-fixed-footer large grey darken-4">
             <div className="modal-content white-text">
                 <div className="row">
@@ -56,9 +57,8 @@ const Dialog = ({ title, children, onClose, isOpen }) => {
                 </div>
             </div>
         </div>,
-        document.getElementById('portal')
-    );
-
+        document.getElementById('portal'),
+  );
 };
 
 export default Dialog;

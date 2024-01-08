@@ -1,16 +1,19 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useSearchParams, useNavigate, useParams, Outlet } from 'react-router-dom';
+import {
+  useSearchParams, useNavigate, useParams, Outlet,
+} from 'react-router-dom';
 import SearchBox from './SearchBox.js';
 import MovieGenre from './MovieGenre.js';
 import MovieSortBy from './MovieSortBy.js';
 import Movie from './Movie.js';
 import MovieDetails from './MovieDetails.js';
 import MovieDatabaseService from '../services/MovieDatabaseRepository.js';
-import { SEARCH_PARAM_GENRE_KEY, SEARCH_PARAM_SORTBY_KEY, SEARCH_PARAM_QUERY_KEY, DEFAULT_PAGE_SIZE } from '../literals.js';
+import {
+  SEARCH_PARAM_GENRE_KEY, SEARCH_PARAM_SORTBY_KEY, SEARCH_PARAM_QUERY_KEY, DEFAULT_PAGE_SIZE,
+} from '../literals.js';
 import '../css/NetflixRoulette.css';
 
 export function NetflixRoulette() {
-
   const [movies, setMovies] = useState([]);
   const [pagesize, setPagesize] = useState(DEFAULT_PAGE_SIZE);
   const genres = ['All', 'Documentary', 'Comedy', 'Horror', 'Crime'];
@@ -67,7 +70,7 @@ export function NetflixRoulette() {
     const existingParams = new URLSearchParams(searchParams.toString());
     existingParams.set(paramKey, paramValue);
     setSearchParams(existingParams.toString());
-  }
+  };
 
   const handleGenreSelect = (genre) => {
     const byGenre = genre === 'All' ? '' : genre;
@@ -93,7 +96,6 @@ export function NetflixRoulette() {
     setSelectedMovie(null);
     navigate(`/?${searchParams.toString()}`);
   };
-
 
   const handleSortChange = (sortCriteria) => {
     setSortBy(sortCriteria);
@@ -121,12 +123,11 @@ export function NetflixRoulette() {
       }
     } catch (error) {
       console.error('Error:', error);
-
     }
   }
 
   /**
-   * Method to load next page of movies 
+   * Method to load next page of movies
    * @param {*} searchQuery
    * @param {*} sortCriteria
    * @param {*} genreFilter
@@ -143,7 +144,6 @@ export function NetflixRoulette() {
       }
     } catch (error) {
       console.error('Error:', error);
-
     }
   }
 
@@ -167,8 +167,8 @@ export function NetflixRoulette() {
 
   const handleLoadMoreMovie = (event) => {
     event.preventDefault();
-    //const updatePagesize = pagesize + 10;
-    //setPagesize(updatePagesize);
+    // const updatePagesize = pagesize + 10;
+    // setPagesize(updatePagesize);
     const updatedOffset = offset + 10;
     setOffset(updatedOffset);
   };
@@ -203,15 +203,13 @@ export function NetflixRoulette() {
 
       <div className="row">
         {/*  fetching from movie */}
-        {Array.isArray(movies) && movies.length > 0 && movies.map((movie) => {
-          return (
+        {Array.isArray(movies) && movies.length > 0 && movies.map((movie) => (
             <div className="col s6 m4 l3 xxl" key={movie.id}>
               <Movie movie={movie}
                 onMovieClick={() => handleTileClick(movie)}>
               </Movie>
             </div>
-          );
-        })}
+        ))}
       </div>
 
       {resultCount > DEFAULT_PAGE_SIZE && (
@@ -224,7 +222,6 @@ export function NetflixRoulette() {
         </div>)}
     </>
   );
-
 }
 
 export default NetflixRoulette;

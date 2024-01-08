@@ -6,81 +6,80 @@ import { useParams } from 'react-router';
 import MovieDatabaseService from '../services/MovieDatabaseRepository';
 
 const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
+  const { movieId } = useParams();
+  const [movie, setMovie] = useState(initialMovie);
+  const [selectedGenres, setSelectedGenres] = useState([]);
 
-    const { movieId } = useParams();
-    const [movie, setMovie] = useState(initialMovie);
-    const [selectedGenres, setSelectedGenres] = useState([]);
+  const [genres, setGenres] = useState([
+    { value: 'Documentary', label: 'Documentary' },
+    { value: 'Comedy', label: 'Comedy' },
+    { value: 'Horror', label: 'Horror' },
+    { value: 'Crime', label: 'Crime' },
+  ]);
 
-    const [genres, setGenres] = useState([
-        { value: 'Documentary', label: 'Documentary' },
-        { value: 'Comedy', label: 'Comedy' },
-        { value: 'Horror', label: 'Horror' },
-        { value: 'Crime', label: 'Crime' }
-    ]);
+  const [renderFormikForm, setRenderFormikForm] = useState(false);
+  const formattedReleaseYear = movie && movie.release_date;
 
-    const [renderFormikForm, setRenderFormikForm] = useState(false);
-    const formattedReleaseYear = movie && movie.release_date;
+  useEffect(() => {
+    if (!movie && movieId) {
+      loadMovieById(movieId);
+    }
+    const delay = setTimeout(() => {
+      setRenderFormikForm(true);
+    }, 500);
 
-    useEffect(() => {
-        if (!movie && movieId) {
-            loadMovieById(movieId);
-        }
-        const delay = setTimeout(() => {
-            setRenderFormikForm(true);
-        }, 500);
+    return () => clearTimeout(delay);
+  }, [movie]);
 
-        return () => clearTimeout(delay);
-    }, [movie]);
+  useEffect(() => {
+    const elems = document.querySelectorAll('select');
+    const instances = window.M.FormSelect.init(elems);
+  }, [renderFormikForm]);
 
-    useEffect(() => {
-        var elems = document.querySelectorAll('select');
-        var instances = window.M.FormSelect.init(elems);
-    }, [renderFormikForm]);
-
-    /**
+  /**
     * Method to fetch a movie by its id from movie database and set it as the selected movie from list of movies
     * @param {*} movieId : id of the that we want to fetch
     */
-    async function loadMovieById(movieId) {
-        try {
-            const { data, error } = await MovieDatabaseService.loadMovieById(movieId);
+  async function loadMovieById(movieId) {
+    try {
+      const { data, error } = await MovieDatabaseService.loadMovieById(movieId);
 
-            if (error) {
-                // Handle error, show an error message, etc.
-            } else {
-                setMovie(data);
-                setSelectedGenres(data.genres || []);
+      if (error) {
+        // Handle error, show an error message, etc.
+      } else {
+        setMovie(data);
+        setSelectedGenres(data.genres || []);
 
-                const uniqueSelectedGenres = data.genres.filter(genre => !genres.some(existingGenre => existingGenre.value === genre));
-                const additionalGenres = uniqueSelectedGenres.map(genre => ({
-                    value: genre,
-                    label: genre
-                }));
+        const uniqueSelectedGenres = data.genres.filter((genre) => !genres.some((existingGenre) => existingGenre.value === genre));
+        const additionalGenres = uniqueSelectedGenres.map((genre) => ({
+          value: genre,
+          label: genre,
+        }));
 
-                setGenres([...genres, ...additionalGenres]);
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
+        setGenres([...genres, ...additionalGenres]);
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
+  }
 
-    const handleGenreChange = (event) => {
-        const selectedOptions = Array.from(event.target.selectedOptions, (option) => option.value);
-        setSelectedGenres(selectedOptions);
-    };
+  const handleGenreChange = (event) => {
+    const selectedOptions = Array.from(event.target.selectedOptions, (option) => option.value);
+    setSelectedGenres(selectedOptions);
+  };
 
-    const handleSubmit = (values, { setSubmitting }) => {
-        const moviePayload = { ...values, genres: selectedGenres };
-        setSubmitting(false);
-        onSubmit(moviePayload);
-    };
+  const handleSubmit = (values, { setSubmitting }) => {
+    const moviePayload = { ...values, genres: selectedGenres };
+    setSubmitting(false);
+    onSubmit(moviePayload);
+  };
 
-    const handleDeleteFormSubmit = () => {
-        onSubmit(movie.id);
-    };
+  const handleDeleteFormSubmit = () => {
+    onSubmit(movie.id);
+  };
 
-    if (deleteMovie) {
-        return (
+  if (deleteMovie) {
+    return (
             <form className="bordered-form" onSubmit={(e) => { e.preventDefault(); handleDeleteFormSubmit(); }} data-testid="movie-form" >
                 <div className="row">
                     <div className="col s8 m7 offset-s1 offset-m3">
@@ -98,10 +97,10 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
                     </div>
                 </div>
             </form>
-        );
-    }
-    else {
-        return (
+    );
+  }
+
+  return (
             <div>
                 {renderFormikForm && (
                     <Formik
@@ -172,7 +171,6 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
                                         <div className="input-style-form-label">Genre:</div>
                                         <div className="input-style-form" >
 
-
                                             <select
                                                 multiple
                                                 id="dropdown"
@@ -234,9 +232,7 @@ const MovieForm = ({ initialMovie, deleteMovie = false, onSubmit }) => {
                     </Formik>
                 )}
             </div>
-        );
-    }
-
+  );
 };
 
 export default MovieForm;

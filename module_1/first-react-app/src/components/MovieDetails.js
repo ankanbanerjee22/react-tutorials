@@ -1,18 +1,21 @@
-import StarRating from "./StarRating";
-import "../css/MovieDetails.css"
-import { NOT_APPLICABLE, UNKNOWN_MOVIE } from "../literals";
-import {ConvertMinutesToHoursAndMinutes} from '../services/UtilityService'
+import React from 'react';
+import StarRating from './StarRating';
+import '../css/MovieDetails.css';
+import { NOT_APPLICABLE, UNKNOWN_MOVIE } from '../literals';
+import { ConvertMinutesToHoursAndMinutes } from '../services/UtilityService';
 
 const MovieDetails = ({ selectedMovie, onClose }) => {
-    const {id,poster_path, title, release_date, vote_average, duration, overview, genres} = selectedMovie;
+  const {
+    id, poster_path, title, release_date, vote_average, duration, overview, genres,
+  } = selectedMovie;
 
-    const displayedGenre = genres ? genres.flat().join(", ") : NOT_APPLICABLE;
-    const displayedMovieName = title ? title : UNKNOWN_MOVIE;
-    const displayedReleaseYear = release_date ? release_date : NOT_APPLICABLE;
-    const displayedDescription = overview ? ( overview.length <= 400 ? overview : overview.slice(0, 400) + ".......") : NOT_APPLICABLE
-    const displayedDuration = duration ? ConvertMinutesToHoursAndMinutes(duration): NOT_APPLICABLE;
+  const displayedGenre = genres ? genres.flat().join(', ') : NOT_APPLICABLE;
+  const displayedMovieName = title || UNKNOWN_MOVIE;
+  const displayedReleaseYear = release_date || NOT_APPLICABLE;
+  const displayedDescription = overview ? (overview.length <= 400 ? overview : `${overview.slice(0, 400)}.......`) : NOT_APPLICABLE;
+  const displayedDuration = duration ? ConvertMinutesToHoursAndMinutes(duration) : NOT_APPLICABLE;
 
-    return (
+  return (
         <>
             <div className="row">
                 <div className="col s4 m4 xl3">
@@ -22,8 +25,8 @@ const MovieDetails = ({ selectedMovie, onClose }) => {
                                 alt={title}
                                 className="movie-image-style"
                                 onError={(e) => {
-                                    e.target.src = '/images/image_not_available.svg.png';
-                                    e.target.onError = null;
+                                  e.target.src = '/images/image_not_available.svg.png';
+                                  e.target.onError = null;
                                 }}
                             />
                     </div>
@@ -60,8 +63,7 @@ const MovieDetails = ({ selectedMovie, onClose }) => {
                 </div>
             </div>
         </>
-    );
-
+  );
 };
 
 export default MovieDetails;
